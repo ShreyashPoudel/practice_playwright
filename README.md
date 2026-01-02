@@ -14,5 +14,5 @@ npm install -D @playwright/test <br>
 3️⃣ Install PDF parsing library <br>
 npm install pdf-parse <br>
 
-▶️ Run the Tests <br>
+# Run the Tests <br>
 npx playwright test
