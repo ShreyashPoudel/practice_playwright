@@ -8,6 +8,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^17.2.3",
     "pdf-parse": "^2.4.5",
     "playwright": "^1.57.0"
   },
