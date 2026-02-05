@@ -1,0 +1,66 @@
+{
+  "assessmentTitles": [
+    "Gross & Fine Motor Skills Screening",
+    "Early Motor Development Screening",
+    "Infant Movement Skills Check",
+    "Motor Milestones Assessment",
+    "Early Physical Development Screening",
+    "Infant Coordination Review",
+    "Baby Motor Skills Evaluation",
+    "Foundational Movement Screening",
+    "Infant Physical Growth Check",
+    "Early Motor Ability Assessment"
+  ],
+
+  "ageRanges": ["0-6 Months"],
+
+  "parentDescriptions": [
+    "This screening evaluates your child’s physical development, including movement, coordination, and hand-eye skills.",
+    "Helps identify early motor milestones and areas where your child may need support.",
+    "A simple assessment to understand your baby’s physical development.",
+    "Designed to observe early movement patterns and coordination skills.",
+    "Supports early identification of motor skill delays.",
+    "Evaluates how your baby moves, reaches, and responds physically.",
+    "Focuses on early gross and fine motor abilities.",
+    "Provides insight into your baby’s developing strength and coordination.",
+    "Monitors age-appropriate motor development milestones.",
+    "Encourages early awareness of physical growth and movement skills."
+  ],
+
+  "categories": [
+    "Speech",
+    "Language",
+    "Communication_play",
+    "Voice",
+    "Swallowing",
+    "Fluency"
+  ],
+
+  "timeRanges": [
+    "3-6 minutes",
+    "5-10 minutes",
+    "7-12 minutes",
+    "8-15 minutes",
+    "10-15 minutes",
+    "12-18 minutes",
+    "15-20 minutes",
+    "18-25 minutes",
+    "20-30 minutes",
+    "25-30 minutes"
+  ],
+
+  "difficultyLevels": ["Beginner", "Intermediate", "Hard"],
+
+  "questions": [
+    "Can your little one lift their head while lying on their tummy?",
+    "Does your baby move both arms and legs equally?",
+    "Can your little one grasp your finger or a small toy?",
+    "Does your baby bring their hands to their mouth?",
+    "Can your baby briefly hold their head steady?",
+    "Does your baby kick their legs freely when lying down?",
+    "Can your baby track objects with their eyes?",
+    "Does your baby open and close their hands?",
+    "Does your baby respond with movement when you interact?",
+    "Does your baby show smoother, controlled movements?"
+  ]
+}

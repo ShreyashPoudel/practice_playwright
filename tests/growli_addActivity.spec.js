@@ -1,6 +1,6 @@
 
 import {test} from '@playwright/test';
-import activityData from '../activityData.json';
+import activityData from '../Data/activityData.json';
 import  dotenv from 'dotenv';
 dotenv.config();
 test.setTimeout(60000);
@@ -25,7 +25,7 @@ async function login(page) {
     const randomStep1 = getRandomItem(activityData.steps1);
     const randomStep2 = getRandomItem(activityData.steps2);
 
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i < 2; i++) {
     test("Add activity " + (i + 1), async ({page}) => {
         await login(page);
         await page.waitForTimeout(3000);

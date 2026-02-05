@@ -1,7 +1,12 @@
 import {test} from '@playwright/test';
+import assessmentData from '../Data/assessmentData.json';
 import  dotenv from 'dotenv';
 dotenv.config();
 test.setTimeout(60000);
+
+function getRandomItem(array) {
+    return array[Math.floor(Math.random() * array.length)];
+}
 
 async function login(page) {
     await page.goto('https://dev-gweb.gateway.do.webpoint.io/');
@@ -11,44 +16,45 @@ async function login(page) {
     await page.locator('button[type="submit"]').click();
 }
 
+const randomTitle = getRandomItem(assessmentData.assessmentTitles);
+const randomAgeRange = getRandomItem(assessmentData.ageRanges);
+const randomDescription = getRandomItem(assessmentData.parentDescriptions);
+const randomCategory = getRandomItem(assessmentData.categories);
+const randomDuration = getRandomItem(assessmentData.timeRanges);
+const randomDifficulty = getRandomItem(assessmentData.difficultyLevels);
+const randomQuestions = getRandomItem(assessmentData.questions);
+
 test("Add activity " , async ({page}) => {
     await login(page);
     await page.waitForTimeout(3000);
     await page.goto('https://dev-gweb.gateway.do.webpoint.io/admin/assessments');
-    await page.getByRole('link', {name: 'Add Assessment'}).click();
+    await page.getByRole('link', {name: 'Create Assessment'}).click();
     await page.waitForTimeout(2000);
 
-    await page.getByRole('textbox', {name: 'Assessment Title'}).fill('Test Assessment');
+    await page.getByRole('textbox', {name: 'Assessment Title'}).fill(randomTitle);
 
     await page.getByRole('button', {name: 'Select Age Range'}).click();
-    await page.getByRole('menuitem', {name: '0-6 Months'}).click();
+    await page.getByRole('menuitem', {name: randomAgeRange}).click();
 
-    await page.getByRole('textbox', {name: 'Description for Parents'}).fill('Test Assessment');
+    await page.getByRole('textbox', {name: 'Description for Parents'}).fill(randomDescription);
     
     await page.getByRole('combobox').filter({ hasText: 'Select category' }).click();
-    await page.getByRole('option', { name: 'Speech' }).click();
+    await page.getByRole('option', { name: randomCategory }).click();
 
-    await page.getByRole('textbox', {name: '5-10 minutes'}).fill('3 minutes');
+    await page.getByRole('textbox', {name: randomDuration}).fill(randomDuration);
 
     await page.getByRole('combobox').filter({ hasText: 'Beginner' }).click();
-    await page.getByRole('option', { name: 'Intermediate' }).click();
+    await page.getByRole('option', { name: randomDifficulty }).click();
 
     // await page.getByRole('button', { name: 'Public' }).click();
 
-
-    await page.getByRole('textbox', { name: 'e.g., Can your little one sit' }).click();
-    await page.getByRole('textbox', { name: 'e.g., Can your little one sit' }).fill('question 1');
+    await page.getByRole('textbox', { name: 'e.g., Can your little one sit without support?' }).click().fill(randomQuestions);
     await page.getByRole('button', { name: 'Add Question' }).click();
 
-    await page.locator('input[name="questions.1.translations.0.question_text"]').fill('question 2');
-    await page.locator('label').filter({ hasText: 'Not Yet' }).nth(1).click();
-    await page.getByRole('button', { name: 'Add Question' }).click();
-
-    await page.locator('input[name="questions.2.translations.0.question_text"]').fill('question 3');
-    await page.locator('label').filter({ hasText: 'Sometimes' }).nth(2).click();
+    await page.waitForTimeout(2000);
+    await page.getByRole('textbox', { name: 'e.g., Can your little one sit without support?' }).click().fill(randomQuestions);
     await page.getByRole('button', { name: 'Add Question' }).click();
     
-    await page.locator('input[name="questions.3.translations.0.question_text"]').fill('question 4');
 
     await page.waitForTimeout(2000);
 
