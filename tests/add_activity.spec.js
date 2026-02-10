@@ -17,7 +17,7 @@ async function login(page) {
     await page.locator('button[type="submit"]').click();
 }
 
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i < 6; i++) {
     test("Add activity " + (i + 1), async ({page}) => {
         const randomTitle = getRandomItem(activityData.activityTitles);
         const randomType = getRandomItem(activityData.activityTypes);

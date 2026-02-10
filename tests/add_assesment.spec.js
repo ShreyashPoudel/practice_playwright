@@ -53,10 +53,10 @@ test("Add activity " + (i + 1), async ({page}) => {
     questions.sort(() => Math.random() - 0.5);
 
     const questionBoxes = page.getByRole('textbox', {name: 'e.g., Can your little one sit without support?'});
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 8; i++) {
     await questionBoxes.nth(i).fill(questions[i]);
 
-    if (i < 5) {
+    if (i < 7) {
         await page.getByRole('button', { name: 'Add Question' }).click();
         await questionBoxes.nth(i + 1).waitFor();
     }
