@@ -1,0 +1,50 @@
+{
+  "title": [
+    "Learning Colors",
+    "Fun with Shapes",
+    "Healthy Eating",
+    "Good Manners",
+    "Animal Sounds",
+    "My Body Parts",
+    "Daily Routine",
+    "Weather and Seasons",
+    "Family and Friends",
+    "Safety at Home"
+  ],
+  "subtitle": [
+    "Recognizing colors around us",
+    "Understanding basic shapes",
+    "Eating food that helps us grow",
+    "Being kind and polite every day",
+    "Learning animal names and sounds",
+    "Knowing different body parts",
+    "Learning good daily habits",
+    "Understanding weather changes",
+    "Caring for people we love",
+    "Staying safe indoors"
+  ],
+  "content": [
+    "Colors are everywhere. Children can learn colors by looking at toys, clothes, and nature around them.",
+    "Shapes help children understand objects. A ball is a circle, a box is a square, and a slice of pizza looks like a triangle.",
+    "Eating fruits and vegetables helps children grow strong and healthy. Apples, bananas, and carrots give energy.",
+    "Saying please, thank you, and sorry shows good manners. Being kind to friends and family makes everyone happy.",
+    "Animals make fun sounds. A dog says woof, a cat says meow, and a cow says moo. Children can learn their names too.",
+    "Learning body parts like eyes, ears, hands, and feet helps children know themselves and describe the world.",
+    "Daily routines like brushing teeth, washing hands, and bedtime make children healthy and organized.",
+    "Weather changes every day. Children can learn about sun, rain, clouds, and snow through observation.",
+    "Family and friends are important. Children learn to share, care, and spend time with loved ones.",
+    "Safety at home is important. Children should learn not to touch sharp objects, hot stoves, or run indoors."
+  ],
+  "tags": [
+    ["colors", "learning", "visual skills"],
+    ["shapes", "math basics", "cognitive skills"],
+    ["nutrition", "health", "habits"],
+    ["manners", "social skills", "kindness"],
+    ["animals", "sounds", "learning"],
+    ["body", "awareness", "education"],
+    ["routine", "habits", "health"],
+    ["weather", "nature", "science"],
+    ["family", "friends", "social skills"],
+    ["safety", "home", "precautions"]
+  ]
+}
