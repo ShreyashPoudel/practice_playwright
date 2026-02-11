@@ -10,7 +10,7 @@ function getRandomItem(array) {
 }
 
 async function login(page) {
-    await page.goto(process.env.Login_URL);
+    await page.goto(process.env.URL);
     await page.getByRole('link', {name: 'Get Started'}).click();
     await page.getByRole('textbox', {name: 'Email Address'}).fill(process.env.EMAIL);
     await page.getByRole('textbox', {name: 'Password'}).fill(process.env.PASSWORD);
@@ -31,7 +31,7 @@ for (let i = 0; i < 6; i++) {
 
         await page.waitForTimeout(3000);
 
-        await page.goto(process.env.Login_URL + 'admin/activities');
+        await page.goto(process.env.URL + 'admin/activities');
         await page.getByRole('button', {name: 'Create New'}).click();
         await page.getByRole('textbox', {name: 'Activity Title'}).fill(randomTitle);
 
