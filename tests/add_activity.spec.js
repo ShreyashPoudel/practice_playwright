@@ -3,7 +3,7 @@ import {test} from '@playwright/test';
 import activityData from '../Data/activityData.json';
 import  dotenv from 'dotenv';
 dotenv.config();
-test.setTimeout(60000);
+test.setTimeout(30000);
 
 function getRandomItem(array) {
     return array[Math.floor(Math.random() * array.length)];
