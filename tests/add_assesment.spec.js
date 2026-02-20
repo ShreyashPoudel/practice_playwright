@@ -9,7 +9,7 @@ function getRandomItem(array) {
 }
 
 async function login(page) {
-    await page.goto('https://dev.growli-slp.com/');
+    await page.goto(process.env.URL);
     await page.getByRole('link', {name: 'Get Started'}).click();
     await page.getByRole('textbox', {name: 'Email Address'}).fill(process.env.EMAIL);
     await page.getByRole('textbox', {name: 'Password'}).fill(process.env.PASSWORD);
@@ -35,52 +35,38 @@ test("Add activity " + (i + 1), async ({page}) => {
 
     await page.getByRole('textbox', {name: 'Assessment Title'}).fill(randomTitle);
 
+    // add age
     await page.getByRole('button', {name: 'Select Age Range'}).click();
     await page.getByRole('menuitem', {name: randomAgeRange}).click();
 
+    // add description
     await page.getByRole('textbox', {name: 'Description for Parents'}).fill(randomDescription);
     
+    // add category
     // await page.getByRole('combobox').filter({ hasText: 'Select category' }).click();
     // await page.getByRole('option', { name: randomCategory }).click();
 
+    // add duration
     await page.getByRole('textbox', {name: '5-10 minutes'}).fill(randomDuration);
 
+    // add difficulty
     await page.getByRole('combobox').filter({ hasText: 'Beginner' }).click();
     await page.getByRole('option', { name: randomDifficulty }).click();
 
     // add random questions
     const questions = [...assessmentData.questions];
     questions.sort(() => Math.random() - 0.5);
-
+    const n = Math.floor(Math.random() * 8) + 1; // Random number of questions between 1 and 8
     const questionBoxes = page.getByRole('textbox', {name: 'e.g., Can your little one sit without support?'});
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < n; i++) {
     await questionBoxes.nth(i).fill(questions[i]);
 
-    if (i < 7) {
+    if (i < n-1) {
         await page.getByRole('button', { name: 'Add Question' }).click();
         await questionBoxes.nth(i + 1).waitFor();
     }
     }
-
-    // await page.getByRole('button', { name: 'Public' }).click();
-
-    // const question1 =  page.getByRole('textbox', { name: 'e.g., Can your little one sit without support?' });
-    // await question1.first().click();
-    // await question1.fill(randomQuestions);
-    // await page.getByRole('button', { name: 'Add Question' }).click();
-
-    // await page.waitForTimeout(2000);
-    // const question2 =  page.getByRole('textbox', { name: 'e.g., Can your little one sit without support?' });
-    // await question2.nth(1).click();
-    // await question2.nth(1).fill(randomQuestions);
-    // await page.getByRole('button', { name: 'Add Question' }).click();
-
-    // await page.waitForTimeout(2000);
-    // const question3 =  page.getByRole('textbox', { name: 'e.g., Can your little one sit without support?' });
-    // await question3.nth(2).click();
-    // await question3.nth(2).fill(randomQuestions);
     
-
     await page.waitForTimeout(2000);
 
     await page.getByRole('button', { name: 'Publish Assessment' }).click();

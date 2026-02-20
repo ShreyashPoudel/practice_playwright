@@ -9,6 +9,7 @@ function getRandomItem(array) {
     return array[Math.floor(Math.random() * array.length)];
 }
 
+
 async function login(page) {
     await page.goto(process.env.URL);
     await page.getByRole('link', {name: 'Get Started'}).click();

@@ -28,7 +28,6 @@ test("Add article " + (i+1), async ({page}) => {
 
     await login(page);
     await page.getByRole('link', {name: 'Articles'}).click();
-    await page.waitForTimeout(2000);
     await page.getByRole('button', {name: 'Create New Article'}).click();
 
     // fill article title
@@ -70,10 +69,10 @@ test("Add article " + (i+1), async ({page}) => {
 
     // featured image
 
-    await page.waitForTimeout(2000);
+    await page.waitForTimeout(1000);
 
     await page.getByRole('button', {name: 'Publish Article'}).click();
-
+    await page.waitForTimeout(1000);
 
 });
 }
