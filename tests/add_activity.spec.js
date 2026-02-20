@@ -35,7 +35,7 @@ for (let i = 0; i < 6; i++) {
         await page.getByRole('button', {name: 'Create New'}).click();
         await page.getByRole('textbox', {name: 'Activity Title'}).fill(randomTitle);
 
-        await page.getByRole('button', {name: 'Choose Activity Type'}).click();
+        await page.getByRole('button', { name: 'Choose category' }).click();
         await page.getByRole('menuitem', {name: randomType}).click();
 
         await page.mouse.click(0, 0);
