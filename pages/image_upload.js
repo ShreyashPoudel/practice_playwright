@@ -1,0 +1,26 @@
+import fs from 'fs';
+import path from 'path';
+
+export class ImageUpload {
+  constructor(page) {
+    this.page = page;
+  }
+
+  async uploadRandomImage() {
+    const imagesDir = path.resolve(__dirname, '../images');
+
+    const images = fs
+      .readdirSync(imagesDir)
+      .filter(f => /\.(png|jpe?g)$/i.test(f));
+
+    if (!images.length) {
+      throw new Error('No images found in images folder');
+    }
+
+    const randomImage = images[Math.floor(Math.random() * images.length)];
+    const imagePath = path.join(imagesDir, randomImage);
+
+    await this.page.locator('text=Drop your image here or').click();
+    await this.page.locator('input[type="file"]').setInputFiles(imagePath);
+  }
+}
