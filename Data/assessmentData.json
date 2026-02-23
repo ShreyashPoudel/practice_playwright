@@ -12,7 +12,7 @@
     "Early Motor Ability Assessment"
   ],
 
-  "ageRanges": ["0-6 Months"],
+  "ageRanges": ["0-6 months", "6-12 months", "12-18 months", "18-24 months", "24-36 months", "36-48 months", "48-60 months"],
 
   "parentDescriptions": [
     "This screening evaluates your child’s physical development, including movement, coordination, and hand-eye skills.",
@@ -28,28 +28,13 @@
   ],
 
   "categories": [
-    "Speech",
+    "Communication Play",
     "Language",
-    "Communication_play",
-    "Voice",
+    "Speech",
     "Swallowing",
-    "Fluency"
+    "Fluency",
+    "Voice"
   ],
-
-  "timeRanges": [
-    "3-6 minutes",
-    "5-10 minutes",
-    "7-12 minutes",
-    "8-15 minutes",
-    "10-15 minutes",
-    "12-18 minutes",
-    "15-20 minutes",
-    "18-25 minutes",
-    "20-30 minutes",
-    "25-30 minutes"
-  ],
-
-  "difficultyLevels": ["Beginner"],
 
   "questions": [
     "Can your little one lift their head while lying on their tummy?",
