@@ -12,7 +12,15 @@
     "Early Motor Ability Assessment"
   ],
 
-  "ageRanges": ["0-6 months", "6-12 months", "12-18 months", "18-24 months", "24-36 months", "36-48 months", "48-60 months"],
+  "ageRanges": [
+    "0-6 months",
+    "6-12 months",
+    "12-18 months",
+    "18-24 months",
+    "24-36 months",
+    "36-48 months",
+    "48-60 months"
+  ],
 
   "parentDescriptions": [
     "This screening evaluates your child’s physical development, including movement, coordination, and hand-eye skills.",

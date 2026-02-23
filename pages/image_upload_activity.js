@@ -13,14 +13,10 @@ export class ImageUpload {
       .readdirSync(imagesDir)
       .filter(f => /\.(png|jpe?g)$/i.test(f));
 
-    if (!images.length) {
-      throw new Error('No images found in images folder');
-    }
-
     const randomImage = images[Math.floor(Math.random() * images.length)];
     const imagePath = path.join(imagesDir, randomImage);
 
-    await this.page.locator('text=Drop your image here or').click();
-    await this.page.locator('input[type="file"]').setInputFiles(imagePath);
-  }
+    await this.page.locator('text=Upload a cover image').click();
+    await this.page.locator('input[type="file"]').first().setInputFiles(imagePath);
+     }
 }

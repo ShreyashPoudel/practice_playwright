@@ -1,24 +1,14 @@
-
 import {test} from '@playwright/test';
 import activityData from '../Data/activityData.json';
-import  dotenv from 'dotenv';
-dotenv.config();
+import { ImageUpload } from '../pages/image_upload_activity';
+import { LoginPage } from '../pages/login';
 test.setTimeout(30000);
 
 function getRandomItem(array) {
     return array[Math.floor(Math.random() * array.length)];
 }
 
-
-async function login(page) {
-    await page.goto(process.env.URL);
-    await page.getByRole('link', {name: 'Get Started'}).click();
-    await page.getByRole('textbox', {name: 'Email Address'}).fill(process.env.EMAIL);
-    await page.getByRole('textbox', {name: 'Password'}).fill(process.env.PASSWORD);
-    await page.locator('button[type="submit"]').click();
-}
-
-for (let i = 0; i < 6; i++) {
+for (let i = 0; i < 10; i++) {
     test("Add activity " + (i + 1), async ({page}) => {
         const randomTitle = getRandomItem(activityData.activityTitles);
         const randomType = getRandomItem(activityData.activityTypes);
@@ -28,10 +18,13 @@ for (let i = 0; i < 6; i++) {
         const randomStep1 = getRandomItem(activityData.steps1);
         const randomStep2 = getRandomItem(activityData.steps2);
 
-        await login(page);
+        // login
+        const loginPage = new LoginPage(page);
+        await loginPage.login();
 
         await page.waitForTimeout(3000);
 
+        // navigate to activities
         await page.goto(process.env.URL + 'admin/activities');
         await page.getByRole('button', {name: 'Create New'}).click();
         await page.getByRole('textbox', {name: 'Activity Title'}).fill(randomTitle);
@@ -48,6 +41,10 @@ for (let i = 0; i < 6; i++) {
 
         // fill description
         await page.getByRole('textbox', {name: 'Activity Description'}).fill(randomDescription);
+
+        // add media
+        const coverUpload = new ImageUpload(page);
+        await coverUpload.uploadRandomImage();
 
         // fill youtube link
         await page.locator("//input[@placeholder='https://youtube.com/watch?v=...']").fill(randomYoutubeLink);

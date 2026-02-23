@@ -1,30 +1,25 @@
 import {test} from '@playwright/test';
 import assessmentData from '../Data/assessmentData.json';
-import  dotenv from 'dotenv';
-dotenv.config();
+import { LoginPage } from '../pages/login';
 test.setTimeout(60000);
 
 function getRandomItem(array) {
     return array[Math.floor(Math.random() * array.length)];
 }
 
-async function login(page) {
-    await page.goto(process.env.URL);
-    await page.getByRole('link', {name: 'Get Started'}).click();
-    await page.getByRole('textbox', {name: 'Email Address'}).fill(process.env.EMAIL);
-    await page.getByRole('textbox', {name: 'Password'}).fill(process.env.PASSWORD);
-    await page.locator('button[type="submit"]').click();
-}
-
 for (let i = 0; i < 3; i++) {
-test("Add activity " + (i + 1), async ({page}) => {
+test("Add assessment " + (i + 1), async ({page}) => {
 
     const randomTitle = getRandomItem(assessmentData.assessmentTitles);
     const randomAgeRange = getRandomItem(assessmentData.ageRanges);
     const randomDescription = getRandomItem(assessmentData.parentDescriptions);
     const randomCategory = getRandomItem(assessmentData.categories);
+    
+    // login 
+    const loginPage = new LoginPage(page);
+    await loginPage.login();
 
-    await login(page);
+
     await page.waitForTimeout(3000);
     await page.goto('https://dev.growli-slp.com/admin/assessments');
     await page.getByRole('link', {name: 'Create Assessment'}).click();

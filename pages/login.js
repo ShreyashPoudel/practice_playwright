@@ -1,4 +1,7 @@
-class LoginPage {
+import  dotenv from 'dotenv';
+dotenv.config();
+
+export class LoginPage {
     constructor(page) {
         this.page = page;
 

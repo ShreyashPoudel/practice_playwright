@@ -1,0 +1,72 @@
+{
+  "productTitles": [
+    "Alphabet Adventure eBook",
+    "Mini Chef Cooking Workshop",
+    "Dino Dig Game Kit",
+    "Calm Corner Sensory Kit",
+    "Math Explorer Digital Workbook",
+    "Super Science Lab Kit",
+    "Storytime Yoga Workshop",
+    "Puzzle Mania Game Kit",
+    "Creative Music eCourse",
+    "Emotion Explorer Therapeutic Kit"
+  ],
+
+  "productDescriptions": [
+    "A colorful digital resource helping children learn letters through interactive stories and fun animations.",
+    "A hands-on workshop where children learn simple recipes and kitchen safety, fostering creativity and independence.",
+    "Excavate and assemble realistic dinosaur fossils while learning fun facts about prehistoric creatures.",
+    "A therapeutic tool with tactile toys, stress balls, and visual aids to help children manage emotions and anxiety.",
+    "Digital workbook filled with fun math games and challenges to enhance numeracy skills.",
+    "Hands-on experiment kit to explore physics, chemistry, and biology in a safe and fun way.",
+    "Interactive workshop combining storytelling and yoga to improve focus, posture, and mindfulness.",
+    "A kit full of puzzles and brain teasers designed to enhance problem-solving and critical thinking skills.",
+    "An online music course teaching children rhythm, melody, and basic instrument skills through fun games.",
+    "Therapeutic kit with emotion cards, journals, and interactive activities to support social-emotional learning."
+  ],
+
+  "activityTags": [
+    "reading, literacy, alphabet, interactive, digital",
+    "cooking, workshop, kids, creativity, life skills",
+    "dinosaurs, archaeology, game, hands-on, science",
+    "sensory, emotional regulation, therapy, calming, children",
+    "math, digital, games, learning, fun",
+    "science, experiments, STEM, educational, hands-on",
+    "yoga, mindfulness, workshop, children, storytelling",
+    "puzzles, critical thinking, problem-solving, game, kids",
+    "music, online course, rhythm, melody, children",
+    "therapy, emotional learning, social skills, kids, interactive"
+  ],
+
+  "ageRanges": [
+    "0-6 months",
+    "6-12 months",
+    "12-18 months",
+    "18-24 months",
+    "24-36 months",
+    "36-48 months",
+    "48-60 months"
+  ],
+
+  "accessTypes": ["Paid"],
+
+  "productTypes": [
+    "Digital Resources",
+    "Workshops",
+    "Game Kits",
+    "Therapeutic Tools"
+  ],
+
+  "pricesCAD": [
+    "12.99",
+    "29.99",
+    "24.50",
+    "34.00",
+    "14.99",
+    "39.50",
+    "27.00",
+    "22.50",
+    "19.99",
+    "31.00"
+  ]
+}

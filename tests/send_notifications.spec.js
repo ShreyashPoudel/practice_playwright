@@ -1,40 +1,27 @@
 import {test} from '@playwright/test';
-import dotenv from 'dotenv';
+import { LoginPage } from '../pages/login';
 import notificationData from '../Data/notificationData.json';
-dotenv.config();
 test.setTimeout(60000);
 
-async function login(page) {
-    await page.goto(process.env.URL);
-    await page.getByRole('link', {name: 'Get Started'}).click();
-    await page.getByRole('textbox', {name: 'Email Address'}).fill(process.env.EMAIL);
-    await page.getByRole('textbox', {name: 'Password'}).fill(process.env.PASSWORD);
-    await page.locator('button[type="submit"]').click();
-}
 
 function getRandomItem(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-for (let i = 0; i < 2; i++) {
+for (let i = 0; i < 5; i++) {
 test('Send Notifications' + (i+1), async ({page}) => {
-    await login(page);
-    await page.getByRole('link', {name: 'Notifications'}).click();
-
-    // const notificationTypes = ['Reminder', 'New Activity', 'Milestone', 'Parenting Tip'];
-    // const randomNotificationType = getRandomItem(notificationTypes);
-    // await page.getByRole('combobox', {name: 'Select Notification Type'}).click();
-    // await page.getByRole('option', {name: randomNotificationType}).click();
-
-    // await page.locator('div').filter({ hasText: 'Reminder'}).click();
-    // await page.locator('div').filter({ hasText: /^New Activity$/ }).click();
-    // await page.locator('div').filter({ hasText: /^Milestone$/ }).click();
-    // await page.locator('div').filter({ hasText: /^Parenting Tip$/ }).click();
-    // await page.locator('div').filter({ hasText: /^Reminder$/ }).click();
 
     // random selection
     const randomTitle = getRandomItem(notificationData.titles);
     const randomMessage = getRandomItem(notificationData.messages);
+
+    // login 
+    const loginPage = new LoginPage(page);
+    await loginPage.login();
+
+    // navigate to notifications page
+    await page.getByRole('link', {name: 'Notifications'}).click();
+    await page.getByRole('button', { name: 'Create New' }).click();
 
     // fill title 
     await page.getByRole('textbox', { name: 'e.g., Time for Today\'s' }).click();
@@ -44,6 +31,14 @@ test('Send Notifications' + (i+1), async ({page}) => {
     await page.getByRole('textbox', { name: 'Write a friendly message for' }).click();
     await page.getByRole('textbox', { name: 'Write a friendly message for' }).fill(randomMessage);
     await page.waitForTimeout(2000);
+
+    // fill button link
+    const link = "https://dev.growli-slp.com/";
+    await page.getByRole('textbox', { name: 'https://www.growli-slp.com/url-name' }).fill(link);
+
+    // fill button name
+    const buttonName = "Click Here";
+    await page.getByRole('textbox', { name: 'Start Assessment' }).fill(buttonName);
 
     await page.getByRole('button', { name: 'Send Notification' }).click();
     await page.waitForTimeout(5000);

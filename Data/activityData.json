@@ -57,24 +57,11 @@
     "https://youtube.com/watch?v=lmn890"
   ],
 
-  "accessType": [
-    "Free",
-    "Premium"
-  ],
+  "accessType": ["Free", "Premium"],
 
-  "durationMinutes": [
-    "10",
-    "20",
-    "30",
-    "40",
-    "50"
-  ],
+  "durationMinutes": ["10", "20", "30", "40", "50"],
 
-  "difficultyLevel": [
-    "Easy",
-    "Medium",
-    "Hard"
-  ],
+  "difficultyLevel": ["Easy", "Medium", "Hard"],
 
   "steps1": [
     "Gather all materials",

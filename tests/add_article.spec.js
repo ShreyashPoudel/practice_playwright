@@ -1,21 +1,10 @@
 import {test} from '@playwright/test';
 import articleData from '../data/articleData.json'
-import dotenv from 'dotenv';
-import { ImageUpload } from '../pages/image_upload';
-dotenv.config();
-
+import { LoginPage } from '../pages/login';
+import { ImageUpload } from '../pages/image_upload_article';
 function getRandomItem(array) {
     return array[Math.floor(Math.random() * array.length)];
 }
-
-async function login(page) {
-    await page.goto(process.env.URL);
-    await page.getByRole('link', {name: 'Get Started'}).click();
-    await page.getByRole('textbox', {name: 'Email Address'}).fill(process.env.EMAIL);
-    await page.getByRole('textbox', {name: 'Password'}).fill(process.env.PASSWORD);
-    await page.locator('button[type="submit"]').click();
-}
-
 
 for (let i = 0; i < 2; i++) {
 test("Add article " + (i+1), async ({page}) => {
@@ -27,7 +16,11 @@ test("Add article " + (i+1), async ({page}) => {
     const randomTags = getRandomItem(articleData.tags);
 
 
-    await login(page);
+    // login 
+    const loginPage = new LoginPage(page);
+    await loginPage.login();
+
+
     await page.waitForTimeout(2000);
     await page.getByRole('link', {name: 'Parenting Guides'}).click();
     await page.getByRole('button', {name: 'Create New Article'}).click();
