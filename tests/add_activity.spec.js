@@ -36,23 +36,29 @@ for (let i = 0; i < 6; i++) {
         await page.getByRole('button', {name: 'Create New'}).click();
         await page.getByRole('textbox', {name: 'Activity Title'}).fill(randomTitle);
 
+        // select category
         await page.getByRole('button', { name: 'Choose category' }).click();
         await page.getByRole('menuitem', {name: randomType}).click();
 
         await page.mouse.click(0, 0);
 
+        // select age range
         await page.getByRole('button', {name: 'Select age range'}).click();
         await page.getByRole('menuitem', {name: randomAgeRange}).click();
 
-        // // Get all option values from the select dropdown
-        //     const options = await page.locator('select option').evaluateAll(opts => opts.map(o => o.value));
-        //     const randomOption = options[Math.floor(Math.random() * options.length)];
-        //     await page.locator('select').selectOption(randomOption);
-
+        // fill description
         await page.getByRole('textbox', {name: 'Activity Description'}).fill(randomDescription);
 
+        // fill youtube link
         await page.locator("//input[@placeholder='https://youtube.com/watch?v=...']").fill(randomYoutubeLink);
 
+        // fill duration
+        const duration = page.getByRole('spinbutton', {name: 'Duration (minutes)'});
+        duration.click();
+        await page.keyboard.press('Backspace');
+        await duration.fill('30');
+
+        // fill steps
         await page.getByRole('textbox', {name: 'First magical step...'}).fill(randomStep1);
         await page.getByRole('textbox', {name: 'Second wonderful step...'}).fill(randomStep2);
         

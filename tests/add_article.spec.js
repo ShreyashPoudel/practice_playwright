@@ -1,6 +1,7 @@
 import {test} from '@playwright/test';
 import articleData from '../data/articleData.json'
 import dotenv from 'dotenv';
+import { ImageUpload } from '../pages/image_upload';
 dotenv.config();
 
 function getRandomItem(array) {
@@ -16,7 +17,7 @@ async function login(page) {
 }
 
 
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 2; i++) {
 test("Add article " + (i+1), async ({page}) => {
 
     // get random items
@@ -27,7 +28,8 @@ test("Add article " + (i+1), async ({page}) => {
 
 
     await login(page);
-    await page.getByRole('link', {name: 'Articles'}).click();
+    await page.waitForTimeout(2000);
+    await page.getByRole('link', {name: 'Parenting Guides'}).click();
     await page.getByRole('button', {name: 'Create New Article'}).click();
 
     // fill article title
@@ -59,16 +61,15 @@ test("Add article " + (i+1), async ({page}) => {
 
     // select age range
     await page.locator("(//button[@role='combobox'])[2]").click();
-    const ageRanges = ['All Ages (0-5 years)', '0-12 Months', '1-2 Year', '2-3 Year', '3-4 Year', '4-5 Year'];
+    const ageRanges = ['All Ages (0-5 years)', "0-6 months", "6-12 months", "12-18 months", "18-24 months", "24-36 months", "36-48 months", "48-60 months"];
     const randomAgeRange = getRandomItem(ageRanges);
     await page.getByRole('option', {name: randomAgeRange}).click();
 
-    // select reading time 
+    // upload  image
+    const imageUpload = new ImageUpload(page);
+    await imageUpload.uploadRandomImage();
 
-    // featured article
-
-    // featured image
-
+  
     await page.waitForTimeout(1000);
 
     await page.getByRole('button', {name: 'Publish Article'}).click();

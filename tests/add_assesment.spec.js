@@ -23,9 +23,6 @@ test("Add activity " + (i + 1), async ({page}) => {
     const randomAgeRange = getRandomItem(assessmentData.ageRanges);
     const randomDescription = getRandomItem(assessmentData.parentDescriptions);
     const randomCategory = getRandomItem(assessmentData.categories);
-    const randomDuration = getRandomItem(assessmentData.timeRanges);
-    const randomDifficulty = getRandomItem(assessmentData.difficultyLevels);
-    // const randomQuestions = getRandomItem(assessmentData.questions);
 
     await login(page);
     await page.waitForTimeout(3000);
@@ -43,15 +40,9 @@ test("Add activity " + (i + 1), async ({page}) => {
     await page.getByRole('textbox', {name: 'Description for Parents'}).fill(randomDescription);
     
     // add category
-    // await page.getByRole('combobox').filter({ hasText: 'Select category' }).click();
-    // await page.getByRole('option', { name: randomCategory }).click();
-
-    // add duration
-    await page.getByRole('textbox', {name: '5-10 minutes'}).fill(randomDuration);
-
-    // add difficulty
-    await page.getByRole('combobox').filter({ hasText: 'Beginner' }).click();
-    await page.getByRole('option', { name: randomDifficulty }).click();
+    // await page.getByRole('button').filter({ hasText: 'Select category' }).click();
+    await page.getByRole('button', {name: 'Select category'}).click();
+    await page.getByRole('menuitem', { name: randomCategory }).click();
 
     // add random questions
     const questions = [...assessmentData.questions];
