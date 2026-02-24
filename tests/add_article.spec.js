@@ -2,6 +2,7 @@ import {test} from '@playwright/test';
 import articleData from '../data/articleData.json'
 import { LoginPage } from '../pages/login';
 import { ImageUpload } from '../pages/image_upload_article';
+
 function getRandomItem(array) {
     return array[Math.floor(Math.random() * array.length)];
 }
@@ -14,13 +15,13 @@ test("Add article " + (i+1), async ({page}) => {
     const randomSubtitle = getRandomItem(articleData.subtitle);
     const randomContent = getRandomItem(articleData.content);
     const randomTags = getRandomItem(articleData.tags);
-
+    const randomAgeRange = getRandomItem(articleData.ageRanges);
 
     // login 
     const loginPage = new LoginPage(page);
     await loginPage.login();
 
-
+    // navigate to article creation page
     await page.waitForTimeout(2000);
     await page.getByRole('link', {name: 'Parenting Guides'}).click();
     await page.getByRole('button', {name: 'Create New Article'}).click();
@@ -54,19 +55,15 @@ test("Add article " + (i+1), async ({page}) => {
 
     // select age range
     await page.locator("(//button[@role='combobox'])[2]").click();
-    const ageRanges = ['All Ages (0-5 years)', "0-6 months", "6-12 months", "12-18 months", "18-24 months", "24-36 months", "36-48 months", "48-60 months"];
-    const randomAgeRange = getRandomItem(ageRanges);
     await page.getByRole('option', {name: randomAgeRange}).click();
 
     // upload  image
     const imageUpload = new ImageUpload(page);
     await imageUpload.uploadRandomImage();
 
-  
     await page.waitForTimeout(1000);
 
     await page.getByRole('button', {name: 'Publish Article'}).click();
-    await page.waitForTimeout(1000);
-
+ 
 });
 }
