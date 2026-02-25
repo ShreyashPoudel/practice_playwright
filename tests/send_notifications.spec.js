@@ -8,8 +8,8 @@ function getRandomItem(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-for (let i = 0; i < 5; i++) {
-test('Send Notifications' + (i+1), async ({page}) => {
+// for (let i = 0; i < 5; i++) {
+test('Send Notifications', async ({page}) => {
 
     // random selection
     const randomTitle = getRandomItem(notificationData.titles);
@@ -22,6 +22,14 @@ test('Send Notifications' + (i+1), async ({page}) => {
     // navigate to notifications page
     await page.getByRole('link', {name: 'Notifications'}).click();
     await page.getByRole('button', { name: 'Create New' }).click();
+
+    // select notification type
+    //  await this.page.locator('text=Drop your image here or').click();
+    
+    const notificationTypes = ['Reminder', 'New Activity', 'Milestone', 'Parenting Tip', 'Personalized Activity'];
+    const randomNotificationType = getRandomItem(notificationTypes);
+    await page.locator('text=' + randomNotificationType).first().click();
+    await page.waitForTimeout(5000);
 
     // fill title 
     await page.getByRole('textbox', { name: 'e.g., Time for Today\'s' }).click();
@@ -44,4 +52,4 @@ test('Send Notifications' + (i+1), async ({page}) => {
     await page.waitForTimeout(5000);
 
 });
-}
+// }
