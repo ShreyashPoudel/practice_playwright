@@ -7,7 +7,7 @@ function getRandomItem(array) {
     return array[Math.floor(Math.random() * array.length)];
 }
 
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 6; i++) {
 test("Add article " + (i+1), async ({page}) => {
 
     // get random items
