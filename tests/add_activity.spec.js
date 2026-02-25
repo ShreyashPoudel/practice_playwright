@@ -26,7 +26,7 @@ for (let i = 0; i < 6; i++) {
 
         // navigate to activities
         await page.goto(process.env.URL + 'admin/activities');
-        await page.getByRole('button', {name: 'Create New'}).click();
+        await page.getByRole('button', {name: 'Create Activity'}).click();
         await page.getByRole('textbox', {name: 'Activity Title'}).fill(randomTitle);
 
         // select category

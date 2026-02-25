@@ -46,5 +46,22 @@
     ["weather", "nature", "science"],
     ["family", "friends", "social skills"],
     ["safety", "home", "precautions"]
+  ],
+  "ageRanges": [
+    "0-6 months",
+    "6-12 months",
+    "12-18 months",
+    "18-24 months",
+    "24-36 months",
+    "36-48 months",
+    "48-60 months"
+  ],
+  "categories": [
+    "Communication Play",
+    "Language",
+    "Speech",
+    "Swallowing",
+    "Voice",
+    "Fluency"
   ]
 }

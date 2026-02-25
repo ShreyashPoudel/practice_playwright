@@ -7,7 +7,7 @@ function getRandomItem(array) {
     return array[Math.floor(Math.random() * array.length)];
 }
 
-for (let i = 0; i < 2; i++) {
+for (let i = 0; i < 5; i++) {
 test("Add article " + (i+1), async ({page}) => {
 
     // get random items
@@ -24,7 +24,7 @@ test("Add article " + (i+1), async ({page}) => {
     // navigate to article creation page
     await page.waitForTimeout(2000);
     await page.getByRole('link', {name: 'Parenting Guides'}).click();
-    await page.getByRole('button', {name: 'Create New Article'}).click();
+    await page.getByRole('button', {name: 'Create Article'}).click();
 
     // fill article title
     await page.getByRole('textbox', {name: 'Article Title'}).fill(randomTitle);
