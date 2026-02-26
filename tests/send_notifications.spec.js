@@ -8,12 +8,13 @@ function getRandomItem(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-// for (let i = 0; i < 5; i++) {
-test('Send Notifications', async ({page}) => {
+for (let i = 0; i < 5; i++) {
+test('Send Notifications' + (i + 1) , async ({page}) => {
 
     // random selection
     const randomTitle = getRandomItem(notificationData.titles);
     const randomMessage = getRandomItem(notificationData.messages);
+    const randomNotificationType = getRandomItem(notificationData.notificationType);
 
     // login 
     const loginPage = new LoginPage(page);
@@ -24,20 +25,18 @@ test('Send Notifications', async ({page}) => {
     await page.getByRole('button', { name: 'Create New' }).click();
 
     // select notification type
-    //  await this.page.locator('text=Drop your image here or').click();
-    
-    const notificationTypes = ['Reminder', 'New Activity', 'Milestone', 'Parenting Tip', 'Personalized Activity'];
-    const randomNotificationType = getRandomItem(notificationTypes);
     await page.locator('text=' + randomNotificationType).first().click();
     await page.waitForTimeout(5000);
 
     // fill title 
-    await page.getByRole('textbox', { name: 'e.g., Time for Today\'s' }).click();
-    await page.getByRole('textbox', { name: 'e.g., Time for Today\'s' }).fill(randomTitle);
+    const Titlename = 'e.g., Time for Today\'s';
+    await page.getByRole('textbox', { name: Titlename}).click();
+    await page.getByRole('textbox', { name: Titlename }).fill(randomTitle);
 
     // fill message
-    await page.getByRole('textbox', { name: 'Write a friendly message for' }).click();
-    await page.getByRole('textbox', { name: 'Write a friendly message for' }).fill(randomMessage);
+    const MesssageName = 'Write a friendly message for';
+    await page.getByRole('textbox', { name: MesssageName }).click();
+    await page.getByRole('textbox', { name: MesssageName }).fill(randomMessage);
     await page.waitForTimeout(2000);
 
     // fill button link
@@ -52,4 +51,4 @@ test('Send Notifications', async ({page}) => {
     await page.waitForTimeout(5000);
 
 });
-// }
+}

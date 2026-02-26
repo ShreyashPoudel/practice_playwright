@@ -13,5 +13,12 @@
   "Short, playful activities can make learning fun and easy.",
   "Your child will love today’s learning challenge!",
   "Tap here to begin a joyful learning journey."
+],
+"notificationType": [
+  "Reminder",
+  "New Activity",
+  "Milestone",
+  "Parenting Tip",
+  "Personalized Activity"
 ]
 }
