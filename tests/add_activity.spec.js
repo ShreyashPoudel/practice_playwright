@@ -17,6 +17,7 @@ for (let i = 0; i < 6; i++) {
         const randomYoutubeLink = getRandomItem(activityData.youtubeLinks);
         const randomStep1 = getRandomItem(activityData.steps1);
         const randomStep2 = getRandomItem(activityData.steps2);
+        const randomStep3 = getRandomItem(activityData.steps3);
 
         // login
         const loginPage = new LoginPage(page);
@@ -49,15 +50,18 @@ for (let i = 0; i < 6; i++) {
         // fill youtube link
         await page.locator("//input[@placeholder='https://youtube.com/watch?v=...']").fill(randomYoutubeLink);
 
-        // fill duration
-        const duration = page.getByRole('spinbutton', {name: 'Duration (minutes)'});
-        duration.click();
-        await page.keyboard.press('Backspace');
-        await duration.fill('30');
+        // // fill duration
+        // const duration = page.getByRole('spinbutton', {name: 'Duration (minutes)'});
+        // duration.click();
+        // await page.keyboard.press('Backspace');
+        // await duration.fill('30');
 
         // fill steps
         await page.getByRole('textbox', {name: 'First magical step...'}).fill(randomStep1);
         await page.getByRole('textbox', {name: 'Second wonderful step...'}).fill(randomStep2);
+        await page.getByRole('button', {name: '+ Add Another Step'}).click();
+        await page.getByRole('textbox', {name: 'Step 3'}).fill(randomStep3);
+
         
         await page.getByRole('button', {name: 'Create Activity'}).click();
 
