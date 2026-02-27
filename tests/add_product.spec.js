@@ -25,7 +25,7 @@ test("Add Product " + (i + 1) , async ({page}) => {
 
     // navigate to add product page
     await page.getByRole('link', {name: 'Products'}).click();
-    await page.getByRole('button', {name: 'Add Product'}).click();
+    await page.getByRole('button', {name: 'Add Product'}).first().click();
 
     // fill product title
     await page.getByRole('textbox', {name: 'e.g., Colorful Block Building Adventure'}).fill(randomTitle);
