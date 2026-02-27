@@ -18,5 +18,6 @@ export class ImageUpload {
 
     await this.page.locator('text=Drop your image here or').click();
     await this.page.locator('input[type="file"]').setInputFiles(imagePath);
+
   }
 }
