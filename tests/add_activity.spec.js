@@ -8,16 +8,14 @@ function getRandomItem(array) {
     return array[Math.floor(Math.random() * array.length)];
 }
 
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 10; i++) {
     test("Add activity " + (i + 1), async ({page}) => {
         const randomTitle = getRandomItem(activityData.activityTitles);
         const randomType = getRandomItem(activityData.activityTypes);
         const randomAgeRange = getRandomItem(activityData.ageRanges);
         const randomDescription = getRandomItem(activityData.activityDescriptions);
         const randomYoutubeLink = getRandomItem(activityData.youtubeLinks);
-        const randomStep1 = getRandomItem(activityData.steps1);
-        const randomStep2 = getRandomItem(activityData.steps2);
-        const randomStep3 = getRandomItem(activityData.steps3);
+        const randomAccessType = getRandomItem(activityData.accessType);
 
         // login
         const loginPage = new LoginPage(page);
@@ -49,6 +47,10 @@ for (let i = 0; i < 5; i++) {
 
         // fill youtube link
         await page.locator("//input[@placeholder='https://youtube.com/watch?v=...']").fill(randomYoutubeLink);
+
+        // activity access type
+        await page.getByRole('button', {name: randomAccessType}).click();
+
 
     // Helper to get random item
     function getRandomItem(array) {
