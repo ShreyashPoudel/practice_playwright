@@ -7,7 +7,7 @@ function getRandomItem(array) {
     return array[Math.floor(Math.random() * array.length)];
 }
 
-for (let i = 0; i < 2; i++) {
+for (let i = 0; i < 6; i++) {
 test("Add assessment " + (i + 1), async ({page}) => {
 
     const randomTitle = getRandomItem(assessmentData.assessmentTitles);
