@@ -53,46 +53,46 @@ for (let i = 0; i < 10; i++) {
         await page.getByRole('button', {name: randomAccessType}).click();
 
 
-    // Helper to get random item
-    function getRandomItem(array) {
-    return array[Math.floor(Math.random() * array.length)];
-    }
+        // Helper to get random item
+        function getRandomItem(array) {
+        return array[Math.floor(Math.random() * array.length)];
+        }
 
-    const allSteps = [
-    ...activityData.steps1,
-    ...activityData.steps2,
-    ...activityData.steps3
-    ];
+        const allSteps = [
+        ...activityData.steps1,
+        ...activityData.steps2,
+        ...activityData.steps3
+        ];
 
-    allSteps.sort(() => Math.random() - 0.5);
+        allSteps.sort(() => Math.random() - 0.5);
 
-    // Random number of steps
-    const n = Math.floor(Math.random() * 6) + 1;
+        // Random number of steps
+        const n = Math.floor(Math.random() * 6) + 1;
 
-    await page.getByPlaceholder('First magical step...').waitFor();
+        await page.getByPlaceholder('First magical step...').waitFor();
 
-    for (let i = 0; i < n; i++) {
+        for (let i = 0; i < n; i++) {
 
-    if (i === 0) {
-        await page.getByPlaceholder('First magical step...')
-        .fill(allSteps[i]);
+        if (i === 0) {
+            await page.getByPlaceholder('First magical step...')
+            .fill(allSteps[i]);
 
-    } else if (i === 1) {
-        await page.getByPlaceholder('Second wonderful step...')
-        .fill(allSteps[i]);
+        } else if (i === 1) {
+            await page.getByPlaceholder('Second wonderful step...')
+            .fill(allSteps[i]);
 
-    } else {
-        await page.getByRole('button', { name: '+ Add Another Step' }).click();
+        } else {
+            await page.getByRole('button', { name: '+ Add Another Step' }).click();
 
-        const stepName = `Step ${i + 1}`;
+            const stepName = `Step ${i + 1}`;
 
-        await page.getByPlaceholder(stepName).waitFor();
-        await page.getByPlaceholder(stepName).fill(allSteps[i]);
-    }
-    }   
+            await page.getByPlaceholder(stepName).waitFor();
+            await page.getByPlaceholder(stepName).fill(allSteps[i]);
+        }
+        }   
     
-    await page.waitForTimeout(2000);
-    
-    await page.getByRole('button', {name: 'Create Activity'}).click();
+        await page.waitForTimeout(2000);
+        
+        await page.getByRole('button', {name: 'Create Activity'}).click();
 });
 }
