@@ -61,7 +61,7 @@ test("Add article " + (i+1), async ({page}) => {
     const imageUpload = new ImageUpload(page);
     await imageUpload.uploadRandomImage();
 
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(5000);
 
     await page.getByRole('button', {name: 'Publish Article'}).click();
  

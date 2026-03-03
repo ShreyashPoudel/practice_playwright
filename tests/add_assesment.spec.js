@@ -53,12 +53,9 @@ test("Add assessment " + (i + 1), async ({page}) => {
     }
     }
     
-    await page.waitForTimeout(2000);
+    await page.waitForTimeout(1000);
 
     await page.getByRole('button', { name: 'Publish Assessment' }).click();
-
-    await page.waitForTimeout(5000);
-
 
 });
 }
