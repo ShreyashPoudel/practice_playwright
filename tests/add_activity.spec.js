@@ -8,7 +8,7 @@ function getRandomItem(array) {
     return array[Math.floor(Math.random() * array.length)];
 }
 
-for (let i = 0; i < 4; i++) {
+for (let i = 0; i < 5; i++) {
     test("Add activity " + (i + 1), async ({page}) => {
         const randomTitle = getRandomItem(activityData.activityTitles);
         const randomType = getRandomItem(activityData.activityTypes);
@@ -50,64 +50,44 @@ for (let i = 0; i < 4; i++) {
         // fill youtube link
         await page.locator("//input[@placeholder='https://youtube.com/watch?v=...']").fill(randomYoutubeLink);
 
-        // // fill duration
-        // const duration = page.getByRole('spinbutton', {name: 'Duration (minutes)'});
-        // duration.click();
-        // await page.keyboard.press('Backspace');
-        // await duration.fill('30');
+    // Helper to get random item
+    function getRandomItem(array) {
+    return array[Math.floor(Math.random() * array.length)];
+    }
 
-        // // fill steps
-        // await page.getByRole('textbox', {name: 'First magical step...'}).fill(randomStep1);
-        // await page.getByRole('textbox', {name: 'Second wonderful step...'}).fill(randomStep2);
-        // await page.getByRole('button', {name: '+ Add Another Step'}).click();
-        // await page.getByRole('textbox', {name: 'Step 3'}).fill(randomStep3);
-        // add random activity steps
+    const allSteps = [
+    ...activityData.steps1,
+    ...activityData.steps2,
+    ...activityData.steps3
+    ];
 
+    allSteps.sort(() => Math.random() - 0.5);
 
-// Helper to get random item (optional if needed elsewhere)
-function getRandomItem(array) {
-  return array[Math.floor(Math.random() * array.length)];
-}
+    // Random number of steps
+    const n = Math.floor(Math.random() * 6) + 1;
 
-// Merge all step arrays
-const allSteps = [
-  ...activityData.steps1,
-  ...activityData.steps2,
-  ...activityData.steps3
-];
+    await page.getByPlaceholder('First magical step...').waitFor();
 
-// Shuffle steps
-allSteps.sort(() => Math.random() - 0.5);
+    for (let i = 0; i < n; i++) {
 
-// Random number of steps (1 to 6)
-const n = Math.floor(Math.random() * 6) + 1;
+    if (i === 0) {
+        await page.getByPlaceholder('First magical step...')
+        .fill(allSteps[i]);
 
-// Wait for first textbox to appear
-await page.getByPlaceholder('First magical step...').waitFor();
+    } else if (i === 1) {
+        await page.getByPlaceholder('Second wonderful step...')
+        .fill(allSteps[i]);
 
-for (let i = 0; i < n; i++) {
+    } else {
+        await page.getByRole('button', { name: '+ Add Another Step' }).click();
 
-  if (i === 0) {
-    await page.getByPlaceholder('First magical step...')
-      .fill(allSteps[i]);
+        const stepName = `Step ${i + 1}`;
 
-  } else if (i === 1) {
-    await page.getByPlaceholder('Second wonderful step...')
-      .fill(allSteps[i]);
-
-  } else {
-    // Click button to add new step field
-    await page.getByRole('button', { name: '+ Add Another Step' }).click();
-
-    const stepName = `Step ${i + 1}`;
-
-    await page.getByPlaceholder(stepName).waitFor();
-    await page.getByPlaceholder(stepName).fill(allSteps[i]);
-  }
-}
-        
-        await page.getByRole('button', {name: 'Create Activity'}).click();
-
-        await page.waitForTimeout(5000);
+        await page.getByPlaceholder(stepName).waitFor();
+        await page.getByPlaceholder(stepName).fill(allSteps[i]);
+    }
+    }        
+    
+    await page.getByRole('button', {name: 'Create Activity'}).click();
 });
 }
