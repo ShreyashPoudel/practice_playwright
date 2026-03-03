@@ -44,6 +44,7 @@ for (let i = 0; i < 10; i++) {
         // add media
         const coverUpload = new ImageUpload(page);
         await coverUpload.uploadRandomImage();
+        await page.waitForTimeout(5000);
 
         // fill youtube link
         await page.locator("//input[@placeholder='https://youtube.com/watch?v=...']").fill(randomYoutubeLink);
@@ -88,7 +89,9 @@ for (let i = 0; i < 10; i++) {
         await page.getByPlaceholder(stepName).waitFor();
         await page.getByPlaceholder(stepName).fill(allSteps[i]);
     }
-    }        
+    }   
+    
+    await page.waitForTimeout(2000);
     
     await page.getByRole('button', {name: 'Create Activity'}).click();
 });
