@@ -48,9 +48,6 @@ test("Add article " + (i+1), async ({page}) => {
 
     // select status
     await page.locator("(//button[@role='combobox'])[1]").click();
-    // const statusOptions = ['Draft', 'Public', 'Private'];
-    // const statusOptions = 'Public';
-    // const randomStatus = getRandomItem(statusOptions);
     await page.getByRole('option', {name: 'Public'}).click();
 
     // select age range
