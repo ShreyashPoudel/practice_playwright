@@ -13,22 +13,17 @@
   ],
 
   "activityTypes": [
-    "Speech",
+    "Communication Play",
     "Language",
-    "Communication_play",
-    "Voice",
+    "Speech",
     "Swallowing",
+    "Voice",
     "Fluency"
   ],
 
   "ageRanges": [
-    "0-6 months",
-    "6-12 months",
-    "12-18 months",
-    "18-24 months",
-    "24-36 months",
-    "36-48 months",
-    "48-60 months"
+    "0-6 months"
+
   ],
 
   "activityDescriptions": [
@@ -58,10 +53,6 @@
   ],
 
   "accessType": ["Free", "Premium"],
-
-  "durationMinutes": ["10", "20", "30", "40", "50"],
-
-  "difficultyLevel": ["Easy", "Medium", "Hard"],
 
   "steps1": [
     "Gather all materials",
