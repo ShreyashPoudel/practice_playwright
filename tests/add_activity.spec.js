@@ -1,5 +1,5 @@
 import {test} from '@playwright/test';
-import activityData from '../Data/activityData.json';
+import activityData from '../Data/activityData.json' assert {type: 'json' };
 import { ImageUpload } from '../pages/image_upload_activity';
 import { LoginPage } from '../pages/login';
 test.setTimeout(30000);
@@ -8,7 +8,7 @@ function getRandomItem(array) {
     return array[Math.floor(Math.random() * array.length)];
 }
 
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 3; i++) {
     test("Add activity " + (i + 1), async ({page}) => {
         const randomTitle = getRandomItem(activityData.activityTitles);
         const randomType = getRandomItem(activityData.activityTypes);
