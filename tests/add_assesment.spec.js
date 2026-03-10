@@ -1,13 +1,11 @@
 import {test} from '@playwright/test';
 import assessmentData from '../Data/assessmentData.json';
 import { LoginPage } from '../pages/login';
+import {getRandomItem} from '../helpers/randomFuntion';
 test.setTimeout(60000);
 
-function getRandomItem(array) {
-    return array[Math.floor(Math.random() * array.length)];
-}
 
-for (let i = 0; i < 6; i++) {
+for (let i = 0; i < 3; i++) {
 test("Add assessment " + (i + 1), async ({page}) => {
 
     const randomTitle = getRandomItem(assessmentData.assessmentTitles);

@@ -1,6 +1,7 @@
 import {test} from '@playwright/test';
 import activityData from '../Data/activityData.json' assert {type: 'json' };
 import { ImageUpload } from '../pages/image_upload_activity';
+// import {getRandomItem} from '../helpers/randomFuntion';
 import { LoginPage } from '../pages/login';
 test.setTimeout(30000);
 
@@ -20,7 +21,6 @@ for (let i = 0; i < 3; i++) {
         // login
         const loginPage = new LoginPage(page);
         await loginPage.login();
-
         await page.waitForTimeout(3000);
 
         // navigate to activities
@@ -31,7 +31,6 @@ for (let i = 0; i < 3; i++) {
         // select category
         await page.getByRole('button', { name: 'Choose category' }).click();
         await page.getByRole('menuitem', {name: randomType}).click();
-
         await page.mouse.click(0, 0);
 
         // select age range
@@ -52,47 +51,34 @@ for (let i = 0; i < 3; i++) {
         // activity access type
         await page.getByRole('button', {name: randomAccessType}).click();
 
-
-        // Helper to get random item
-        function getRandomItem(array) {
-        return array[Math.floor(Math.random() * array.length)];
-        }
-
         const allSteps = [
-        ...activityData.steps1,
-        ...activityData.steps2,
-        ...activityData.steps3
+            ...activityData.steps1,
+            ...activityData.steps2,
+            ...activityData.steps3
         ];
 
         allSteps.sort(() => Math.random() - 0.5);
 
         // Random number of steps
         const n = Math.floor(Math.random() * 6) + 1;
-
         await page.getByPlaceholder('First magical step...').waitFor();
 
         for (let i = 0; i < n; i++) {
-
-        if (i === 0) {
-            await page.getByPlaceholder('First magical step...')
-            .fill(allSteps[i]);
-
-        } else if (i === 1) {
-            await page.getByPlaceholder('Second wonderful step...')
-            .fill(allSteps[i]);
-
-        } else {
-            await page.getByRole('button', { name: '+ Add Another Step' }).click();
-
-            const stepName = `Step ${i + 1}`;
-
-            await page.getByPlaceholder(stepName).waitFor();
-            await page.getByPlaceholder(stepName).fill(allSteps[i]);
-        }
+            if (i === 0) {
+                await page.getByPlaceholder('First magical step...')
+                    .fill(allSteps[i]);
+            } else if (i === 1) {
+                await page.getByPlaceholder('Second wonderful step...')
+                    .fill(allSteps[i]);
+            } else {
+                await page.getByRole('button', { name: '+ Add Another Step' }).click();
+                const stepName = `Step ${i + 1}`;
+                await page.getByPlaceholder(stepName).waitFor();
+                await page.getByPlaceholder(stepName).fill(allSteps[i]);
+            }
         }   
-    
-        await page.waitForTimeout(2000);
-        
+
+        await page.waitForTimeout(4000);
         await page.getByRole('button', {name: 'Create Activity'}).click();
-});
+    });
 }

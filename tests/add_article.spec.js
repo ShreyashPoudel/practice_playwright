@@ -7,7 +7,7 @@ function getRandomItem(array) {
     return array[Math.floor(Math.random() * array.length)];
 }
 
-for (let i = 0; i < 2; i++) {
+for (let i = 0; i < 20; i++) {
     test("Add article " + (i+1), async ({page}) => {
 
     // get random items
@@ -57,7 +57,6 @@ for (let i = 0; i < 2; i++) {
     // upload  image
     const imageUpload = new ImageUpload(page);
     await imageUpload.uploadRandomImage();
-
     await page.waitForTimeout(5000);
 
     await page.getByRole('button', {name: 'Publish Article'}).click();
