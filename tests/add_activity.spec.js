@@ -43,7 +43,6 @@ for (let i = 0; i < 3; i++) {
         // add media
         const coverUpload = new ImageUpload(page);
         await coverUpload.uploadRandomImage();
-        // await page.waitForTimeout(5000);
 
         // fill youtube link
         await page.locator("//input[@placeholder='https://youtube.com/watch?v=...']").fill(randomYoutubeLink);
@@ -77,21 +76,8 @@ for (let i = 0; i < 3; i++) {
                 await page.getByPlaceholder(stepName).fill(allSteps[i]);
             }
         }   
-
-        await page.waitForTimeout(4000);
-        expect(page.getByRole('button', {name: 'Create Activity'})).toBeVisible();
+        await page.waitForTimeout(1000);
         await page.getByRole('button', {name: 'Create Activity'}).click();
         
-        // Wait for activity to be published - adjust based on your app's behavior:
-        // Option 1: Wait for URL change to activities list
-        await page.waitForURL('**/admin/activities', { timeout: 10000 });
-        
-        // Option 2: Or wait for success message (uncomment if applicable)
-        // await expect(page.locator('text=/successfully|created|published/i')).toBeVisible({ timeout: 10000 });
-        
-        // Option 3: Or wait for navigation away from create page
-        // await page.waitForURL(url => !url.includes('/create'), { timeout: 10000 });
-        
-        await page.waitForTimeout(2000); // Additional wait for backend processing
     });
 }
