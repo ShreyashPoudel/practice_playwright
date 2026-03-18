@@ -14,7 +14,7 @@ export class ImageUpload {
       .filter(f => /\.(png|jpe?g)$/i.test(f));
 
     const randomImage = images[Math.floor(Math.random() * images.length)];
-    const imagePath = path.join(imagesDir, randomImage);
+    const imagePath = path.join(imagesDir,randomImage);
 
     await this.page.locator('text=Drop your image here or').click();
     await this.page.locator('input[type="file"]').setInputFiles(imagePath);

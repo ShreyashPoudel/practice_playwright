@@ -1,0 +1,8 @@
+{
+  "servers": {
+    "practice_playwright Docs": {
+      "type": "sse",
+      "url": "https://gitmcp.io/ShreyashPoudel/practice_playwright"
+    }
+  }
+}
