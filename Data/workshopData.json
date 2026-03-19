@@ -1,0 +1,34 @@
+{
+  "workshopTitles": [
+    "Colorful Playtime",
+    "Tiny Music Makers",
+    "Storytime Adventures",
+    "Little Builders",
+    "Creative Craft Corner",
+    "Fun with Shapes",
+    "Rhythm and Movement",
+    "Imagination Station",
+    "Sensory Play Fun",
+    "Mini Explorers"
+  ],
+
+  "workshopDescriptions": [
+    "A vibrant and engaging workshop where children explore colors through painting, drawing, and playful activities. This session helps develop creativity, hand-eye coordination, and early artistic expression in a fun and safe environment.",
+    "An interactive music workshop where children are introduced to rhythm, sounds, and simple instruments. Kids will enjoy singing, clapping, and moving to music, helping to build listening skills and a sense of rhythm.",
+    "A magical storytelling experience designed to spark imagination and improve listening skills. Children will engage with stories through visuals, sounds, and role-play, encouraging creativity and communication.",
+    "A hands-on workshop where children build and create using blocks and simple materials. This activity promotes problem-solving, fine motor skills, and teamwork through guided play.",
+    "A creative space where children make simple crafts using paper, colors, and safe materials. This workshop encourages self-expression, focus, and creativity while developing fine motor skills.",
+    "A playful learning session where children explore different shapes through games and hands-on activities. This helps in early cognitive development and recognition skills in a fun way.",
+    "An energetic workshop combining music and movement to enhance coordination and physical development. Children will dance, jump, and move freely while building confidence and motor skills.",
+    "A fun-filled session that encourages children to use their imagination through pretend play, storytelling, and creative activities. This helps in developing social and emotional skills.",
+    "A sensory-rich workshop designed to stimulate children's senses through textures, sounds, and visual play. It supports brain development and helps children explore the world around them.",
+    "An exploratory workshop where children learn about their surroundings through guided play and discovery activities. It nurtures curiosity, observation skills, and early learning habits."
+  ],
+
+  "accessType": [
+    "Free",
+    "Premium"
+  ], 
+
+  "externalURL" : "https://drive.google.com/file/d/1vItRElgq3oDjNhRSu7ROxY6DLc2F2tEH/view?usp=sharing"
+}

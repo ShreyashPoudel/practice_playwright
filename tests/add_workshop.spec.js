@@ -1,15 +1,19 @@
-import{test,expect} from '@playwright/test';
+import{test} from '@playwright/test';
 import {LoginPage} from '../pages/login.js';
 import {ImageUpload} from '../pages/image_upload_activity.js';
+import workshopData from '../data/workshopData.json';
 
 function getRandomItem(array) {
     return array[Math.floor(Math.random() * array.length)];
 }
 
-test("Add workshop", async ({page}) => {
+for (let i = 0; i < 5; i++) {
+test("Add workshop " + (i+1), async ({page}) => {
 
-    const randomTitle = getRandomItem(activityData.activityTitles);
-    
+    const randomTitle = getRandomItem(workshopData.workshopTitles);
+    const randomDescription = getRandomItem(workshopData.workshopDescriptions);
+    const randomAccessType = getRandomItem(workshopData.accessType);
+
     // login
     const loginPage = new LoginPage(page);
     await loginPage.login();
@@ -17,7 +21,6 @@ test("Add workshop", async ({page}) => {
 
     // navigate to workshop
     await page.goto(process.env.URL + 'admin/activities');
-    await page.getByRole('button', {name: 'Create Activity'}).click();
     await page.getByRole('button', {name: 'View Workshop'}).click();
     await page.getByRole('button', {name: 'Create New Workshop'}).click();
 
@@ -31,11 +34,15 @@ test("Add workshop", async ({page}) => {
     const coverUpload = new ImageUpload(page);
     await coverUpload.uploadRandomImage();
 
+    // drive link
+    await page.getByRole('textbox', { name: 'External URL (Drive/Docs/Other)(Optional)' }).fill(workshopData.externalURL);
+
     // workshop access type
     await page.getByRole('button', {name: randomAccessType}).click();
 
+    // submit
+    await page.getByRole('button', {name: 'Create New Workshop'}).click();
 
-
-
-
+    await page.waitForTimeout(2000);
     });
+}
