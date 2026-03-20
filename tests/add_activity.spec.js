@@ -83,6 +83,6 @@ for (let i = 0; i < 6; i++) {
       }
     }
     await page.waitForTimeout(1000);
-    await page.getByRole("button", { name: "Create Activity" }).click();
+    await page.getByRole("button", { name: "Create New Activity" }).click();
   });
 }
