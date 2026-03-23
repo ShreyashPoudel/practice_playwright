@@ -15,6 +15,7 @@ test('Send Notifications' + (i + 1) , async ({page}) => {
     const randomTitle = getRandomItem(notificationData.titles);
     const randomMessage = getRandomItem(notificationData.messages);
     const randomNotificationType = getRandomItem(notificationData.notificationType);
+    const randomLanguageType = getRandomItem(notificationData.languageType);
 
     // login 
     const loginPage = new LoginPage(page);
@@ -27,6 +28,9 @@ test('Send Notifications' + (i + 1) , async ({page}) => {
     // select notification type
     await page.locator('text=' + randomNotificationType).first().click();
     await page.waitForTimeout(5000);
+    
+    // select language type
+    await page.getByRole('button', { name: randomLanguageType }).click();
 
     // fill title 
     const Titlename = 'e.g., Time for Today\'s';

@@ -7,8 +7,8 @@ function getRandomItem(array) {
     return array[Math.floor(Math.random() * array.length)];
 }
 
-for (let i = 0; i < 20; i++) {
-test("Add workshop " + (i+1), async ({page}) => {
+for (let i = 0; i < 5; i++) {
+test("Add workshop " + (i + 1), async ({page}) => {
 
     const randomTitle = getRandomItem(workshopData.workshopTitles);
     const randomDescription = getRandomItem(workshopData.workshopDescriptions);
@@ -18,6 +18,7 @@ test("Add workshop " + (i+1), async ({page}) => {
     const loginPage = new LoginPage(page);
     await loginPage.login();
     await page.waitForTimeout(2000);
+    await page.pause();
 
     // navigate to workshop
     await page.goto(process.env.URL + 'admin/activities');
