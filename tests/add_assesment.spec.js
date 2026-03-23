@@ -7,8 +7,8 @@ function getRandomItem(array) {
     return array[Math.floor(Math.random() * array.length)];
 } 
 
-// for (let i = 0; i < 2; i++) {
-test("Add assessment " , async ({page}) => {
+for (let i = 0; i < 2; i++) {
+test("Add assessment " + (i + 1), async ({page}) => {
 
     const randomTitle = getRandomItem(assessmentData.assessmentTitles);
     const randomAgeRange = getRandomItem(assessmentData.ageRanges);
@@ -60,4 +60,4 @@ test("Add assessment " , async ({page}) => {
     await page.getByRole('button', { name: 'Publish Assessment' }).click();
 
 });
-// }
+}

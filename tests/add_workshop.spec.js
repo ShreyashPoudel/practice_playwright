@@ -18,7 +18,6 @@ test("Add workshop " + (i + 1), async ({page}) => {
     const loginPage = new LoginPage(page);
     await loginPage.login();
     await page.waitForTimeout(2000);
-    await page.pause();
 
     // navigate to workshop
     await page.goto(process.env.URL + 'admin/activities');

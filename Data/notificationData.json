@@ -1,4 +1,42 @@
 {
+  "userTypes" : [
+    "All Parents",
+    "Premium Users",
+    "Free Users"
+  ],
+
+  "ageRanges": [
+    "0-6 months",
+    "6-12 months",
+    "12-18 months",
+    "18-24 months",
+    "24-36 months",
+    "36-48 months",
+    "48-60 months"
+  ],
+
+  "categories": [
+    "Communication Play",
+    "Language",
+    "Speech",
+    "Swallowing",
+    "Voice",
+    "Fluency"
+  ],
+
+  "notificationType": [
+  "Reminder",
+  "Promotion",
+  "Did you know?",
+  "Personalized Activity"
+], 
+
+"languageType" : [
+  "English",
+  "Arabic",
+  "Hebrew"
+],
+  
 "titles" : [
   "Time for Today's Activity! 🎉",
   "Don't forget to check out our new features! 🚀",
@@ -13,17 +51,7 @@
   "Short, playful activities can make learning fun and easy.",
   "Your child will love today’s learning challenge!",
   "Tap here to begin a joyful learning journey."
-],
-"notificationType": [
-  "Reminder",
-  "New Activity",
-  "Milestone",
-  "Parenting Tip",
-  "Personalized Activity"
-], 
-"languageType" : [
-  "English",
-  "Arabic",
-  "Hebrew"
 ]
+
+
 }
