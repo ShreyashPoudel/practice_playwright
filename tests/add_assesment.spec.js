@@ -7,8 +7,8 @@ function getRandomItem(array) {
     return array[Math.floor(Math.random() * array.length)];
 } 
 
-for (let i = 0; i < 6; i++) {
-test("Add assessment " + (i + 1), async ({page}) => {
+// for (let i = 0; i < 2; i++) {
+test("Add assessment " , async ({page}) => {
 
     const randomTitle = getRandomItem(assessmentData.assessmentTitles);
     const randomAgeRange = getRandomItem(assessmentData.ageRanges);
@@ -21,10 +21,12 @@ test("Add assessment " + (i + 1), async ({page}) => {
 
 
     await page.waitForTimeout(3000);
-    await page.goto('https://stg.growli-slp.com/admin/assessments');
+    await page.goto(process.env.URL + 'admin/assessments');
     await page.getByRole('link', {name: 'Create Assessment'}).click();
     await page.waitForTimeout(2000);
 
+    // await page.pause();
+    
     await page.getByRole('textbox', {name: 'Assessment Title'}).fill(randomTitle);
 
     // add age
@@ -58,4 +60,4 @@ test("Add assessment " + (i + 1), async ({page}) => {
     await page.getByRole('button', { name: 'Publish Assessment' }).click();
 
 });
-}
+// }

@@ -9,7 +9,7 @@ function getRandomItem(array) {
   return array[Math.floor(Math.random() * array.length)];
 }
 
-for (let i = 0; i < 6; i++) {
+for (let i = 0; i < 5; i++) {
   test("Add activity " + (i + 1), async ({ page }) => {
     const randomTitle = getRandomItem(activityData.activityTitles);
     const randomType = getRandomItem(activityData.activityTypes);
@@ -84,5 +84,6 @@ for (let i = 0; i < 6; i++) {
     }
     await page.waitForTimeout(1000);
     await page.getByRole("button", { name: "Create New Activity" }).click();
+    await page.waitForTimeout(2000);
   });
 }
