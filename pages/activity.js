@@ -58,9 +58,8 @@ export class ActivityPage {
         await this.secondStepInput.fill(stepsArray[i]);
       } else {
         await this.addAnotherStepBtn.click();
-        const stepName = `Step ${i + 1}`;
-        await this.page.getByPlaceholder(stepName).waitFor();
-        await this.page.getByPlaceholder(stepName).fill(stepsArray[i]);
+        await this.page.getByPlaceholder("e.g., Prepare the materials").nth(i).waitFor();
+        await this.page.getByPlaceholder("e.g., Prepare the materials").nth(i).fill(stepsArray[i]);
       }
     }
   }
