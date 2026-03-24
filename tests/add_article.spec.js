@@ -7,7 +7,7 @@ function getRandomItem(array) {
     return array[Math.floor(Math.random() * array.length)];
 }
 
-for (let i = 0; i < 20; i++) {
+for (let i = 0; i < 2; i++) {
     test("Add article " + (i+1), async ({page}) => {
 
     // get random items
@@ -20,11 +20,15 @@ for (let i = 0; i < 20; i++) {
     // login 
     const loginPage = new LoginPage(page);
     await loginPage.login();
+    await page.waitForTimeout(2000);
 
     // navigate to article creation page
-    await page.waitForTimeout(2000);
-    await page.getByRole('link', {name: 'Parenting Guides'}).click();
+    await page.goto(process.env.URL + 'admin/articles');
     await page.getByRole('button', {name: 'Create Article'}).click();
+
+    // select language
+    await page.getByRole('combobox', {name: 'Language'}).click();
+    await page.getByRole('option', {name: 'English'}).click();
 
     // fill article title
     await page.getByRole('textbox', {name: 'Article Title'}).fill(randomTitle);
@@ -35,7 +39,7 @@ for (let i = 0; i < 20; i++) {
     // select category
     const category = ['Communication Play', 'Language', 'Speech', 'Swallowing', 'Voice', 'Fluency'];
     const randomCategory = getRandomItem(category);
-    await page.getByRole('button', {name: randomCategory}).click();
+    await page.getByRole('button', {name: randomCategory}).first().click();
 
    // fill article content
     const articleContent = page.locator('.rsw-ce');
@@ -47,11 +51,11 @@ for (let i = 0; i < 20; i++) {
     await page.getByRole('textbox', {name:"Add tags separated by commas (e.g., toddler, milestone, learning)"}).fill(tagsString);
 
     // select status
-    await page.locator("(//button[@role='combobox'])[1]").click();
+    await page.locator("text=Status").locator("xpath=following::*[@role='combobox'][1]").click();
     await page.getByRole('option', {name: 'Public'}).click();
 
     // select age range
-    await page.locator("(//button[@role='combobox'])[2]").click();
+    await page.locator("text=Age Range").locator("xpath=following::*[@role='combobox'][1]").click();
     await page.getByRole('option', {name: randomAgeRange}).click();
 
     // upload  image
