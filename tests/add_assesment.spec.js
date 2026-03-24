@@ -45,7 +45,7 @@ test("Add assessment " + (i + 1), async ({page}) => {
     const questions = [...assessmentData.questions];
     questions.sort(() => Math.random() - 0.5);
     const n = Math.floor(Math.random() * 8) + 1; // Random number of questions between 1 and 8
-    const questionBoxes = page.getByRole('textbox', {name: 'e.g., Can your little one sit without support?'});
+    const questionBoxes = page.getByRole('textbox', {name: 'Enter translated question'});
     for (let i = 0; i < n; i++) {
     await questionBoxes.nth(i).fill(questions[i]);
 
