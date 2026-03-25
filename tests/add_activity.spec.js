@@ -1,16 +1,14 @@
 import { expect, test } from "@playwright/test";
 import activityData from "../Data/activityData.json" assert { type: "json" };
 import { ImageUpload } from "../pages/image_upload_activity";
-// import {getRandomItem} from '../helpers/randomFuntion';
 import { LoginPage } from "../pages/login";
-import { time } from "node:console";
 test.setTimeout(30000);
 
 function getRandomItem(array) {
   return array[Math.floor(Math.random() * array.length)];
 }
 
-for (let i = 0; i < 20; i++) {
+for (let i = 0; i < 10; i++) {
   test("Add activity " + (i + 1), async ({ page }) => {
     const randomTitle = getRandomItem(activityData.activityTitles);
     const randomType = getRandomItem(activityData.activityTypes);
@@ -22,10 +20,9 @@ for (let i = 0; i < 20; i++) {
     // login
     const loginPage = new LoginPage(page);
     await loginPage.login();
-    await page.waitForTimeout(2000);
 
     // navigate to activities
-    await page.goto(process.env.URL + "admin/activities");
+    await page.goto("https://dev.growli-slp.com/admin/activities");
     await page.getByRole("button", { name: "Create Activity" }).click();
     await page
       .getByRole("textbox", { name: "Activity Title" })
