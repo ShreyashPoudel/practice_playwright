@@ -20,6 +20,7 @@ for (let i = 0; i < 10; i++) {
     // login
     const loginPage = new LoginPage(page);
     await loginPage.login();
+    await page.waitForTimeout(2000);
 
     // navigate to activities
     await page.goto("https://dev.growli-slp.com/admin/activities");
