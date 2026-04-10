@@ -7,11 +7,11 @@ node_modules/
 /playwright/.cache/
 /playwright/.auth/
 
+# Images
+images/
+
 # Env files
 .env
 .env.local
 .env.*.local
 .env.*
-
-#images file
-/images/
