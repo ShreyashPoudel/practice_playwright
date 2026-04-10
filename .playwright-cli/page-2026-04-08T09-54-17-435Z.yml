@@ -1,0 +1,128 @@
+- generic [ref=e2]:
+  - navigation [ref=e451]:
+    - generic [ref=e452]:
+      - link "Growli Growli" [ref=e453] [cursor=pointer]:
+        - /url: /
+        - img "Growli" [ref=e454]
+        - generic [ref=e455]: Growli
+      - generic [ref=e456]:
+        - link "About" [ref=e457] [cursor=pointer]:
+          - /url: /#about
+        - link "Features" [ref=e458] [cursor=pointer]:
+          - /url: /#features
+        - link "Parental Guides" [ref=e459] [cursor=pointer]:
+          - /url: /guides
+      - generic [ref=e460]:
+        - button "Select language" [ref=e461] [cursor=pointer]: EN
+        - link "Get Started" [ref=e462] [cursor=pointer]:
+          - /url: /login
+  - main [ref=e464]:
+    - generic [ref=e465]:
+      - img "Side illustration" [ref=e466]
+      - generic [ref=e468]:
+        - generic [ref=e469]:
+          - img [ref=e471]
+          - generic [ref=e474]:
+            - heading "Track Milestones" [level=3] [ref=e475]
+            - paragraph [ref=e476]: Monitor developmental progress
+        - generic [ref=e477]:
+          - img "Activity" [ref=e479]
+          - generic [ref=e480]:
+            - heading "Personalized Activities" [level=3] [ref=e481]
+            - paragraph [ref=e482]: Get tailored recommendations
+        - generic [ref=e483]:
+          - img "Expert" [ref=e485]
+          - generic [ref=e486]:
+            - heading "Expert Support" [level=3] [ref=e487]
+            - paragraph [ref=e488]: Connect with therapists
+        - generic [ref=e489]:
+          - paragraph [ref=e490]: Trusted by 5,000+ parents
+          - generic [ref=e491]:
+            - generic [ref=e492]:
+              - img "Secure" [ref=e493]
+              - generic [ref=e494]: Secure & Private
+            - generic [ref=e495]:
+              - img [ref=e496]
+              - generic [ref=e499]: Evidence-Based
+    - generic [ref=e500]:
+      - generic [ref=e501]:
+        - img "Logo" [ref=e503]
+        - heading "Welcome Back!" [level=1] [ref=e504]
+        - paragraph [ref=e505]: Sign in to continue tracking your child's growth
+      - generic [ref=e506]:
+        - generic [ref=e507]:
+          - generic [ref=e508]:
+            - generic [ref=e509]:
+              - img [ref=e510]
+              - text: Email Address
+              - generic [ref=e513]: "*"
+            - generic [ref=e514]:
+              - textbox "Email Address" [active] [ref=e516]:
+                - /placeholder: name@example.com
+                - text: shreyash.poudelwebpoint.io
+              - paragraph [ref=e585]: Please enter a valid email address
+          - generic [ref=e517]:
+            - generic [ref=e518]:
+              - img [ref=e519]
+              - text: Password
+              - generic [ref=e522]: "*"
+            - generic [ref=e524]:
+              - textbox "Password" [ref=e525]:
+                - /placeholder: Create a strong password
+              - button [ref=e527] [cursor=pointer]:
+                - img [ref=e528]
+          - generic [ref=e531]:
+            - generic [ref=e532]:
+              - checkbox "Remember Me" [ref=e533] [cursor=pointer]
+              - checkbox
+              - generic [ref=e534] [cursor=pointer]: Remember Me
+            - button "Forgot Password?" [ref=e535] [cursor=pointer]
+          - button "Log In" [ref=e536] [cursor=pointer]:
+            - text: Log In
+            - img [ref=e537]
+        - generic [ref=e542]: Or continue with
+        - generic [ref=e543]:
+          - button "Sign in with Google" [ref=e544] [cursor=pointer]:
+            - img "Google" [ref=e545]
+            - text: Google
+          - button "Sign in with Facebook" [ref=e546] [cursor=pointer]:
+            - img "Facebook" [ref=e547]
+            - text: Facebook
+        - generic [ref=e548]:
+          - paragraph [ref=e549]: Don't have an account yet?
+          - link "Create Free Account" [ref=e550] [cursor=pointer]:
+            - /url: /signup
+            - text: Create Free Account
+            - img [ref=e551]
+  - contentinfo [ref=e554]:
+    - generic [ref=e556]:
+      - generic [ref=e557]:
+        - generic [ref=e558]:
+          - img "Growli Logo" [ref=e560]
+          - paragraph [ref=e561]: Supporting child development, one milestone at a time
+        - generic [ref=e562]:
+          - generic [ref=e563]:
+            - heading "Company" [level=3] [ref=e564]
+            - navigation [ref=e565]:
+              - link "Contact" [ref=e566] [cursor=pointer]:
+                - /url: /contact-and-faq
+              - link "Privacy Policy" [ref=e567] [cursor=pointer]:
+                - /url: /privacy-policy
+              - link "Terms of Service" [ref=e568] [cursor=pointer]:
+                - /url: /terms-and-conditions
+          - generic [ref=e569]:
+            - heading "Follow Us" [level=3] [ref=e570]
+            - generic [ref=e571]:
+              - link "Facebook" [ref=e572] [cursor=pointer]:
+                - /url: https://facebook.com
+                - img [ref=e573]
+              - link "Instagram" [ref=e575] [cursor=pointer]:
+                - /url: https://instagram.com
+                - img [ref=e576]
+              - link "WhatsApp" [ref=e579] [cursor=pointer]:
+                - /url: https://wa.me/
+                - img [ref=e580]
+      - generic [ref=e582]:
+        - paragraph [ref=e583]: © 2026 Growli
+        - paragraph [ref=e584]: All rights reserved
+  - region "Notifications alt+T"

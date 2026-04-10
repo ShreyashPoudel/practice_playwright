@@ -12,3 +12,6 @@ node_modules/
 .env.local
 .env.*.local
 .env.*
+
+#images file
+/images/

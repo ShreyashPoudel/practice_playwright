@@ -1,0 +1,12 @@
+[     713ms] [INFO] 🌐 i18next is maintained with support from locize.com — consider powering your project with managed localization (AI, CDN, integrations): https://locize.com 💙 @ https://dev.growli-slp.com/assets/index-cOJ4gmhX.js:10
+[    1170ms] [WARNING] Failed to decode downloaded font: https://dev.growli-slp.com/fonts/AnimalChariot-Regular.ttf @ https://dev.growli-slp.com/:0
+[    1170ms] [WARNING] OTS parsing error: invalid sfntVersion: 1008821359 @ https://dev.growli-slp.com/:0
+[   17082ms] [WARNING] Failed to decode downloaded font: https://dev.growli-slp.com/fonts/AnimalChariot-Regular.ttf @ https://dev.growli-slp.com/assets/index-cOJ4gmhX.js:18
+[   17083ms] [WARNING] OTS parsing error: invalid sfntVersion: 1008821359 @ https://dev.growli-slp.com/assets/index-cOJ4gmhX.js:18
+[   17188ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o @ https://dev.growli-slp.com/login:0
+[  131767ms] [WARNING] Failed to decode downloaded font: https://dev.growli-slp.com/fonts/AnimalChariot-Regular.ttf @ https://dev.growli-slp.com/assets/index-cOJ4gmhX.js:78
+[  131768ms] [WARNING] OTS parsing error: invalid sfntVersion: 1008821359 @ https://dev.growli-slp.com/assets/index-cOJ4gmhX.js:78
+[  131921ms] [WARNING] Failed to decode downloaded font: https://dev.growli-slp.com/fonts/AnimalChariot-Regular.ttf @ https://dev.growli-slp.com/dashboard:0
+[  131921ms] [WARNING] OTS parsing error: invalid sfntVersion: 1008821359 @ https://dev.growli-slp.com/dashboard:0
+[  132105ms] [WARNING] Failed to decode downloaded font: https://dev.growli-slp.com/fonts/AnimalChariot-Regular.ttf @ https://dev.growli-slp.com/dashboard:0
+[  132105ms] [WARNING] OTS parsing error: invalid sfntVersion: 1008821359 @ https://dev.growli-slp.com/dashboard:0

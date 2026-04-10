@@ -1,48 +1,50 @@
-import{test} from '@playwright/test';
-import {LoginPage} from '../pages/login.js';
-import {ImageUpload} from '../pages/image_upload_activity.js';
-import workshopData from '../data/workshopData.json';
+import { test } from "@playwright/test";
+import { ImageUpload } from "../pages/image_upload_activity";
+import { LoginPage } from "../pages/login";
+test.setTimeout(30000);
 
 function getRandomItem(array) {
-    return array[Math.floor(Math.random() * array.length)];
+  return array[Math.floor(Math.random() * array.length)];
 }
 
-for (let i = 0; i < 5; i++) {
-test("Add workshop " + (i + 1), async ({page}) => {
-
+// for (let i = 0; i < 10; i++) {
+  test("Add workshop " , async ({ page }) => {
     const randomTitle = getRandomItem(workshopData.workshopTitles);
     const randomDescription = getRandomItem(workshopData.workshopDescriptions);
-    const randomAccessType = getRandomItem(workshopData.accessType);
+    const randomYoutubeLink = getRandomItem(workshopData.youtubeLinks);
+    const randomAccessType = getRandomItem(workshopData.accessTypes);
 
     // login
     const loginPage = new LoginPage(page);
     await loginPage.login();
     await page.waitForTimeout(2000);
 
-    // navigate to workshop
-    await page.goto(process.env.URL + 'admin/activities');
-    await page.getByRole('button', {name: 'View Workshop'}).click();
-    await page.getByRole('button', {name: 'Create New Workshop'}).click();
+    // navigate to activities
+    await page.goto("https://dev.growli-slp.com/admin/activities");
 
-    // fill title
-    await page.getByRole('textbox', {name: 'Workshop Title'}).fill(randomTitle);
+    // click View Workshop
+    await page.getByRole("button", { name: "View Workshop" }).click();
+
+    await page.getByRole("button", { name: "Create New Workshop" }).click();
+
+    // workshop title
+    await page.getByRole("textbox", { name: "Workshop Title" }).fill(randomTitle);
 
     // fill description
-    await page.getByRole('textbox', {name: 'Workshop Description'}).fill(randomDescription);
+    await page.getByRole("textbox", { name: "Workshop Description" }).fill(randomDescription);
 
-    // upload cover image
+    // add media
     const coverUpload = new ImageUpload(page);
     await coverUpload.uploadRandomImage();
 
-    // drive link
-    await page.getByRole('textbox', { name: 'External URL (Drive/Docs/Other)(Optional)' }).fill(workshopData.externalURL);
+    // fill youtube link
+    await page.locator("//input[@placeholder='https://youtube.com/watch?v=...']").fill(randomYoutubeLink);
 
     // workshop access type
-    await page.getByRole('button', {name: randomAccessType}).click();
+    await page.getByRole("button", { name: randomAccessType }).click();
 
-    // submit
-    await page.getByRole('button', {name: 'Create New Workshop'}).click();
-
+    await page.waitForTimeout(1000);
+    await page.getByRole("button", { name: "Create New Workshop" }).click();
     await page.waitForTimeout(2000);
-    });
-}
+  });
+// }
