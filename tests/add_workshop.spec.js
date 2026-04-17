@@ -1,50 +1,36 @@
-import { test } from "@playwright/test";
-import { ImageUpload } from "../pages/image_upload_activity";
-import { LoginPage } from "../pages/login";
+import { test } from '@playwright/test';
+import workshopData from '../data/workshopData.json';
+import { LoginPage } from '../pages/login';
+import { WorkshopPage } from '../pages/workshop';
+import { ImageUpload } from '../helpers/upload';
+
 test.setTimeout(30000);
 
 function getRandomItem(array) {
   return array[Math.floor(Math.random() * array.length)];
 }
 
-// for (let i = 0; i < 10; i++) {
-  test("Add workshop " , async ({ page }) => {
-    const randomTitle = getRandomItem(workshopData.workshopTitles);
-    const randomDescription = getRandomItem(workshopData.workshopDescriptions);
-    const randomYoutubeLink = getRandomItem(workshopData.youtubeLinks);
-    const randomAccessType = getRandomItem(workshopData.accessTypes);
+test('Add workshop', async ({ page }) => {
+  const loginPage = new LoginPage(page);
+  await loginPage.login();
 
-    // login
-    const loginPage = new LoginPage(page);
-    await loginPage.login();
-    await page.waitForTimeout(2000);
+  const workshopPage = new WorkshopPage(page);
+  const upload = new ImageUpload(page);
 
-    // navigate to activities
-    await page.goto("https://dev.growli-slp.com/admin/activities");
+  const title = getRandomItem(workshopData.workshopTitles);
+  const description = getRandomItem(workshopData.workshopDescriptions);
+  const youtubeLink = getRandomItem(workshopData.youtubeLinks);
+  const accessType = getRandomItem(workshopData.accessTypes);
 
-    // click View Workshop
-    await page.getByRole("button", { name: "View Workshop" }).click();
-
-    await page.getByRole("button", { name: "Create New Workshop" }).click();
-
-    // workshop title
-    await page.getByRole("textbox", { name: "Workshop Title" }).fill(randomTitle);
-
-    // fill description
-    await page.getByRole("textbox", { name: "Workshop Description" }).fill(randomDescription);
-
-    // add media
-    const coverUpload = new ImageUpload(page);
-    await coverUpload.uploadRandomImage();
-
-    // fill youtube link
-    await page.locator("//input[@placeholder='https://youtube.com/watch?v=...']").fill(randomYoutubeLink);
-
-    // workshop access type
-    await page.getByRole("button", { name: randomAccessType }).click();
-
-    await page.waitForTimeout(1000);
-    await page.getByRole("button", { name: "Create New Workshop" }).click();
-    await page.waitForTimeout(2000);
-  });
-// }
+  await workshopPage.goto();
+  await workshopPage.viewWorkshopBtn.click();
+  await workshopPage.createWorkshopBtn.click();
+  await workshopPage.titleInput.fill(title);
+  await workshopPage.descriptionInput.fill(description);
+  await upload.upload('activity');
+  await workshopPage.youtubeLinkInput.fill(youtubeLink);
+  await page.getByRole('button', { name: accessType }).click();
+  await workshopPage.wait(1000);
+  await workshopPage.createWorkshopBtn.click();
+  await workshopPage.wait(2000);
+});

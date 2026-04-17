@@ -1,69 +1,43 @@
-import {test} from '@playwright/test';
-import articleData from '../data/articleData.json'
+import { test } from '@playwright/test';
+import articleData from '../data/articleData.json';
 import { LoginPage } from '../pages/login';
-import { ImageUpload } from '../pages/image_upload_article';
+import { ArticlePage } from '../pages/article';
+import { ImageUpload } from '../helpers/upload';
 
 function getRandomItem(array) {
-    return array[Math.floor(Math.random() * array.length)];
+  return array[Math.floor(Math.random() * array.length)];
 }
 
 for (let i = 0; i < 2; i++) {
-    test("Add article " + (i+1), async ({page}) => {
-
-    // get random items
-    const randomTitle = getRandomItem(articleData.title);
-    const randomSubtitle = getRandomItem(articleData.subtitle);
-    const randomContent = getRandomItem(articleData.content);
-    const randomTags = getRandomItem(articleData.tags);
-    const randomAgeRange = getRandomItem(articleData.ageRanges);
-
-    // login 
+  test(`Add article ${i + 1}`, async ({ page }) => {
     const loginPage = new LoginPage(page);
     await loginPage.login();
-    await page.waitForTimeout(2000);
 
-    // navigate to article creation page
-    await page.goto(process.env.URL + 'admin/articles');
-    await page.getByRole('button', {name: 'Create Article'}).click();
+    const articlePage = new ArticlePage(page);
+    const upload = new ImageUpload(page);
 
-    // select language
-    await page.getByRole('combobox', {name: 'Language'}).click();
-    await page.getByRole('option', {name: 'English'}).click();
+    const title = getRandomItem(articleData.title);
+    const subtitle = getRandomItem(articleData.subtitle);
+    const content = getRandomItem(articleData.content);
+    const tags = getRandomItem(articleData.tags);
+    const ageRange = getRandomItem(articleData.ageRanges);
+    const categories = ['Communication Play', 'Language', 'Speech', 'Swallowing', 'Voice', 'Fluency'];
+    const category = getRandomItem(categories);
 
-    // fill article title
-    await page.getByRole('textbox', {name: 'Article Title'}).fill(randomTitle);
-
-    // fill article subtitle
-    await page.getByRole('textbox', {name: 'Subtitle'}).fill(randomSubtitle);
-
-    // select category
-    const category = ['Communication Play', 'Language', 'Speech', 'Swallowing', 'Voice', 'Fluency'];
-    const randomCategory = getRandomItem(category);
-    await page.getByRole('button', {name: randomCategory}).first().click();
-
-   // fill article content
-    const articleContent = page.locator('.rsw-ce');
-    await articleContent.click();
-    await articleContent.fill(randomContent);
-
-    // fill article tags
-    const tagsString = randomTags.join(', ');
-    await page.getByRole('textbox', {name:"Add tags separated by commas (e.g., toddler, milestone, learning)"}).fill(tagsString);
-
-    // select status
-    await page.locator("text=Status").locator("xpath=following::*[@role='combobox'][1]").click();
-    await page.getByRole('option', {name: 'Public'}).click();
-
-    // select age range
-    await page.locator("text=Age Range").locator("xpath=following::*[@role='combobox'][1]").click();
-    await page.getByRole('option', {name: randomAgeRange}).click();
-
-    // upload  image
-    const imageUpload = new ImageUpload(page);
-    await imageUpload.uploadRandomImage();
-    await page.waitForTimeout(5000);
-
-    await page.getByRole('button', {name: 'Publish Article'}).click();
- 
-});
+    await articlePage.goto();
+    await articlePage.createArticleBtn.click();
+    await articlePage.languageSelect.click();
+    await page.getByRole('option', { name: 'English' }).click();
+    await articlePage.titleInput.fill(title);
+    await articlePage.subtitleInput.fill(subtitle);
+    await page.getByRole('button', { name: category }).first().click();
+    await articlePage.contentEditor.click();
+    await articlePage.contentEditor.fill(content);
+    await articlePage.tagsInput.fill(tags.join(', '));
+    await articlePage.selectAgeRange(ageRange);
+    await articlePage.selectStatus('Public');
+    await upload.upload('article');
+    await articlePage.wait(5000);
+    await articlePage.publishBtn.click();
+  });
 }
