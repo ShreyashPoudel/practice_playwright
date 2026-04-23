@@ -58,12 +58,15 @@ for (let i = 0; i < 2; i++) {
     await page.locator("text=Age Range").locator("xpath=following::*[@role='combobox'][1]").click();
     await page.getByRole('option', {name: randomAgeRange}).click();
 
+    // emable featured article
+    await page.locator('//*[@id="app"]/div/main/div/div/div/form/div/div[2]/div[1]/div[4]/div/button').click();
+
     // upload  image
     const imageUpload = new ImageUpload(page);
     await imageUpload.uploadRandomImage();
     await page.waitForTimeout(5000);
 
-    await page.getByRole('button', {name: 'Publish Article'}).click();
+    // await page.getByRole('button', {name: 'Publish Article'}).click();
  
 });
 }
