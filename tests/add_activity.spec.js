@@ -58,7 +58,7 @@ for (let i = 0; i < 10; i++) {
     const allSteps = [
       ...activityData.steps1,
       ...activityData.steps2,
-      ...activityData.steps3,
+      ...activityData.step3,
     ];
 
     allSteps.sort(() => Math.random() - 0.5);
