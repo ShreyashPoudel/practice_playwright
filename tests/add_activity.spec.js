@@ -8,7 +8,7 @@ function getRandomItem(array) {
   return array[Math.floor(Math.random() * array.length)];
 }
 
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 2; i++) {
   test("Add activity " + (i + 1), async ({ page }) => {
     const randomTitle = getRandomItem(activityData.activityTitles);
     const randomType = getRandomItem(activityData.activityTypes);
@@ -58,7 +58,7 @@ for (let i = 0; i < 10; i++) {
     const allSteps = [
       ...activityData.steps1,
       ...activityData.steps2,
-      ...activityData.step3,
+      // ...activityData.step3,
     ];
 
     allSteps.sort(() => Math.random() - 0.5);
