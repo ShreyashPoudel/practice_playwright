@@ -17,7 +17,7 @@ for (let i = 0; i < 5; i++) {
     const randomTags = getRandomItem(articleData.tags);
     const randomAgeRange = getRandomItem(articleData.ageRanges);
 
-    // login 
+    // login
     const loginPage = new LoginPage(page);
     await loginPage.login();
     await page.waitForTimeout(2000);
