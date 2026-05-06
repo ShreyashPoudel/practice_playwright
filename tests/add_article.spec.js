@@ -7,7 +7,7 @@ function getRandomItem(array) {
     return array[Math.floor(Math.random() * array.length)];
 }
 
-for (let i = 0; i < 2; i++) {
+for (let i = 0; i < 5; i++) {
     test("Add article " + (i+1), async ({page}) => {
 
     // get random items
@@ -23,7 +23,7 @@ for (let i = 0; i < 2; i++) {
     await page.waitForTimeout(2000);
 
     // navigate to article creation page
-    await page.goto(process.env.URL + 'admin/articles');
+    await page.goto("https://dev.growli-slp.com/admin/articles");
     await page.getByRole('button', {name: 'Create Article'}).click();
 
     // select language
@@ -66,7 +66,7 @@ for (let i = 0; i < 2; i++) {
     await imageUpload.uploadRandomImage();
     await page.waitForTimeout(5000);
 
-    // await page.getByRole('button', {name: 'Publish Article'}).click();
+    await page.getByRole('button', {name: 'Publish Article'}).click();
  
 });
 }
