@@ -37,7 +37,7 @@ test('Send Notifications' , async ({page}) => {
 
     // navigate to notifications page
     await page.getByRole('link', {name: 'Notifications'}).click();
-    await page.getByRole('button', { name: 'Create New' }).click();
+    await page.getByRole('link', { name: 'Create Notification' }).click();
     
     // select user type
     await page.locator('text=' + randomUserType).first().click();
