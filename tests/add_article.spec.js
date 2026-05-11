@@ -64,7 +64,7 @@ for (let i = 0; i < 5; i++) {
     // upload  image
     const imageUpload = new ImageUpload(page);
     await imageUpload.uploadRandomImage();
-    await page.waitForTimeout(3000);
+    await page.waitForTimeout(3000);    
 
     await page.getByRole('button', {name: 'Publish Article'}).click();
     await page.waitForTimeout(3000);
