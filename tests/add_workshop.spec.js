@@ -1,5 +1,5 @@
 import { test } from "@playwright/test";
-import workshopData from "../Data/workshopData.json" assert { type: "json" };
+import workshopData from "../data/workshopData.json" assert { type: "json" };
 import { ImageUpload } from "../pages/image_upload_activity";
 import { LoginPage } from "../pages/login";
 test.setTimeout(30000);
@@ -8,12 +8,12 @@ function getRandomItem(array) {
   return array[Math.floor(Math.random() * array.length)];
 }
 
-// for (let i = 0; i < 10; i++) {
-  test("Add workshop " , async ({ page }) => {
+for (let i = 0; i < 10; i++) {
+  test("Add workshop " + (i + 1), async ({ page }) => {
     const randomTitle = getRandomItem(workshopData.workshopTitles);
     const randomDescription = getRandomItem(workshopData.workshopDescriptions);
     const randomYoutubeLink = getRandomItem(workshopData.youtubeLinks);
-    const randomAccessType = getRandomItem(workshopData.accessTypes);
+    const randomAccessType = getRandomItem(workshopData.accessType);
 
     // login
     const loginPage = new LoginPage(page);
@@ -48,4 +48,4 @@ function getRandomItem(array) {
     await page.getByRole("button", { name: "Create New Workshop" }).click();
     await page.waitForTimeout(2000);
   });
-// }
+}

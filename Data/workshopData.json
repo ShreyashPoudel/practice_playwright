@@ -30,5 +30,16 @@
     "Premium"
   ], 
 
+  "youtubeLinks": [
+    "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "https://www.youtube.com/watch?v=9bZkp7q19f0",
+    "https://www.youtube.com/watch?v=JGwWNGJdvx8",
+    "https://www.youtube.com/watch?v=kJQP7kiw5Fk",
+    "https://www.youtube.com/watch?v=2Vv-BfVoq4g",
+    "https://www.youtube.com/watch?v=hT_nvWreIhg",
+    "https://www.youtube.com/watch?v=ZZ5LpwO-An4",
+    "https://www.youtube.com/watch?v=OPf0YbXqDm0"
+  ],
+
   "externalURL" : "https://drive.google.com/file/d/1vItRElgq3oDjNhRSu7ROxY6DLc2F2tEH/view?usp=sharing"
 }
