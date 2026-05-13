@@ -2,13 +2,13 @@ import { expect, test } from "@playwright/test";
 import activityData from "../Data/activityData.json" assert { type: "json" };
 import { ImageUpload } from "../pages/image_upload_activity";
 import { LoginPage } from "../pages/login";
-test.setTimeout(30000);
+test.setTimeout(1000000);
 
 function getRandomItem(array) {
   return array[Math.floor(Math.random() * array.length)];
 }
 
-for (let i = 0; i < 20; i++) {
+for (let i = 0; i < 200; i++) {
   test("Add activity " + (i + 1), async ({ page }) => {
     const randomTitle = getRandomItem(activityData.activityTitles);
     const randomType = getRandomItem(activityData.activityTypes);
