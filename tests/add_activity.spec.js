@@ -8,7 +8,7 @@ function getRandomItem(array) {
   return array[Math.floor(Math.random() * array.length)];
 }
 
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 20; i++) {
   test("Add activity " + (i + 1), async ({ page }) => {
     const randomTitle = getRandomItem(activityData.activityTitles);
     const randomType = getRandomItem(activityData.activityTypes);
