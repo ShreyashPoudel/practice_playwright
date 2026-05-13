@@ -1,4 +1,5 @@
 import { test } from "@playwright/test";
+import workshopData from "../Data/workshopData.json" assert { type: "json" };
 import { ImageUpload } from "../pages/image_upload_activity";
 import { LoginPage } from "../pages/login";
 test.setTimeout(30000);
