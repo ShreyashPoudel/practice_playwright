@@ -45,18 +45,6 @@ test('Send Notifications' + (i+1) , async ({page}) => {
     // select age range
     await page.getByRole('combobox').click();
     await page.getByRole('option', { name: randomAgeGroup }).click();
-    // await page.getByLabel('-12 months').getByText('-12 months').click();
-
-
-    // // select child condition
-    // await page.getByRole('button', { name: 'Select conditions' }).click();
-    // await page.waitForSelector('[role="menuitem"]', { state: 'visible' });
-
-    // for (const condition of randomChildConditions) {
-    //   await page.getByRole('menuitem', { name: condition }).click();
-    // }
-
-    // await page.keyboard.press('Escape');
 
     // select notification type
     await page.locator('text=' + randomNotificationType).first().click();
