@@ -49,9 +49,6 @@ test('Send Notifications' + (i+1) , async ({page}) => {
     // select notification type
     await page.locator('text=' + randomNotificationType).first().click();
     await page.waitForTimeout(2000);
-    
-    // select language type
-    // await page.getByRole('button', { name: randomLanguageType }).click();
 
     // fill title 
     const Titlename = 'e.g., Time for Today\'s';
