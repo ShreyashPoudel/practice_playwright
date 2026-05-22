@@ -18,8 +18,8 @@ function getRandomSubset(arr) {
   return shuffled.slice(0, count);
 }
 
-// for (let i = 0; i < 5; i++) {
-test('Send Notifications' , async ({page}) => {
+for (let i = 0; i < 5; i++) {
+test('Send Notifications' + (i+1) , async ({page}) => {
 
     // random selection
     const randomUserType = getRandomItem(notificationData.userTypes);
@@ -48,19 +48,19 @@ test('Send Notifications' , async ({page}) => {
     // await page.getByLabel('-12 months').getByText('-12 months').click();
 
 
-    // select child condition
-    await page.getByRole('button', { name: 'Select conditions' }).click();
-    await page.waitForSelector('[role="menuitem"]', { state: 'visible' });
+    // // select child condition
+    // await page.getByRole('button', { name: 'Select conditions' }).click();
+    // await page.waitForSelector('[role="menuitem"]', { state: 'visible' });
 
-    for (const condition of randomChildConditions) {
-      await page.getByRole('menuitem', { name: condition }).click();
-    }
+    // for (const condition of randomChildConditions) {
+    //   await page.getByRole('menuitem', { name: condition }).click();
+    // }
 
-    await page.keyboard.press('Escape');
+    // await page.keyboard.press('Escape');
 
     // select notification type
     await page.locator('text=' + randomNotificationType).first().click();
-    await page.waitForTimeout(5000);
+    await page.waitForTimeout(2000);
     
     // select language type
     // await page.getByRole('button', { name: randomLanguageType }).click();
@@ -83,7 +83,7 @@ test('Send Notifications' , async ({page}) => {
     // // fill button name
     // const buttonName = "Click Here";
     // await page.getByRole('textbox', { name: 'Start Assessment' }).fill(buttonName);
-
+    await page.pause();
     await page.getByRole('button', { name: 'Send Notification' }).click();
 });
-// }
+}

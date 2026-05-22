@@ -6,13 +6,26 @@
   ],
 
   "ageRanges": [
-    "0-6 months",
-    "6-12 months",
-    "12-18 months",
-    "18-24 months",
-    "24-36 months",
-    "36-48 months",
-    "48-60 months"
+    "0-3 months",
+    "3-6 months",
+    "6-9 months",
+    "9-12 months",
+    "12-15 months",
+    "15-18 months",
+    "18-21 months",
+    "21-24 months",
+    "24-27 months",
+    "27-30 months",
+    "30-33 months",
+    "33-36 months",
+    "36-39 months",
+    "39-42 months",
+    "42-45 months",
+    "45-48 months",
+    "48-51 months",
+    "51-54 months",
+    "54-57 months",
+    "57-60 months"
   ],
 
   "categories": [
