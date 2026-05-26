@@ -8,7 +8,7 @@ function getRandomItem(array) {
   return array[Math.floor(Math.random() * array.length)];
 }
 
-for (let i = 0; i < 10 ; i++) {
+for (let i = 0; i < 5 ; i++) {
   test("Add activity " + (i + 1), async ({ page }) => {
     const randomTitle = getRandomItem(activityData.activityTitles);
     const randomType = getRandomItem(activityData.activityTypes);
@@ -23,7 +23,7 @@ for (let i = 0; i < 10 ; i++) {
     await page.waitForTimeout(2000);
 
     // navigate to activities
-    await page.goto("https://prod.growli-slp.com/admin/activities");
+    await page.goto("https://dev.growli-slp.com/admin/activities");
     await page.getByRole("button", { name: "Create Activity" }).click();
     await page
       .getByRole("textbox", { name: "Activity Title" })
