@@ -10,6 +10,9 @@ node_modules/
 # Images
 images/
 
+#video
+videos/
+
 # Env files
 .env
 .env.local

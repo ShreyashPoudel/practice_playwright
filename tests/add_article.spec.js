@@ -7,7 +7,7 @@ function getRandomItem(array) {
     return array[Math.floor(Math.random() * array.length)];
 }
 
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 20; i++) {
     test("Add article " + (i+1), async ({page}) => {
 
     // get random items
@@ -37,9 +37,9 @@ for (let i = 0; i < 5; i++) {
     await page.getByRole('textbox', {name: 'Subtitle'}).fill(randomSubtitle);
 
     // select category
-    const category = ['Communication', 'Language', 'Speech', 'Swallowing', 'Voice', 'Fluency', 'Other'];
+    const category = ['Select Communication', 'Select Language', 'Select Speech', 'Select Swallowing', 'Select Voice', 'Select Fluency', 'Select Other'];
     const randomCategory = getRandomItem(category);
-    await page.getByRole('button', {name: randomCategory}).click();
+    await page.getByRole('button', {name: randomCategory}).first().click();
 
    // fill article content
     const articleContent = page.locator('.rsw-ce');
@@ -59,7 +59,7 @@ for (let i = 0; i < 5; i++) {
     await page.getByRole('option', {name: randomAgeRange}).click();
 
     // emable featured article
-    await page.locator('//*[@id="app"]/div/main/div/div/div/form/div/div[2]/div[1]/div[4]/div/button').click();
+    // await page.locator('//*[@id="app"]/div/main/div/div/div/form/div/div[2]/div[1]/div[4]/div/button').click();
 
     // upload  image
     const imageUpload = new ImageUpload(page);

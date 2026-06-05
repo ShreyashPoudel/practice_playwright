@@ -1,6 +1,7 @@
 import { expect, test } from "@playwright/test";
 import activityData from "../Data/activityData.json" assert { type: "json" };
 import { ImageUpload } from "../pages/image_upload_activity";
+import { VideoUpload } from "../pages/video_upload_activity";
 import { LoginPage } from "../pages/login";
 test.setTimeout(1000000);
 
@@ -8,7 +9,7 @@ function getRandomItem(array) {
   return array[Math.floor(Math.random() * array.length)];
 }
 
-for (let i = 0; i < 20 ; i++) {
+for (let i = 0; i < 1; i++) {
   test("Add activity " + (i + 1), async ({ page }) => {
     const randomTitle = getRandomItem(activityData.activityTitles);
     const randomType = getRandomItem(activityData.activityTypes);
@@ -43,9 +44,13 @@ for (let i = 0; i < 20 ; i++) {
       .getByRole("textbox", { name: "Activity Description" })
       .fill(randomDescription);
 
-    // add media
+    // add photo
     const coverUpload = new ImageUpload(page);
     await coverUpload.uploadRandomImage();
+
+    // add video
+    const videoUpload = new VideoUpload(page);
+    await videoUpload.uploadRandomVideo();
 
     // fill youtube link
     await page
