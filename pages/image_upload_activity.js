@@ -17,26 +17,8 @@ export class ImageUpload {
     const imagePath = path.join(imagesDir, randomImage);
 
     await this.page.locator('text=Upload a cover image').click();
-    await this.page.locator('input[type="file"]').first().setInputFiles(imagePath);
+    await this.page.waitForSelector('input[type="file"]', { state: 'visible' });
+    await this.page.locator('input[type="file"]').last().setInputFiles(imagePath);
      }
 }
 
-export class VideoUpload {
-  constructor(page) {
-    this.page = page;
-  }
-
-  async uploadRandomVideo() {
-    const videosDir = path.resolve(__dirname, '../videos');
-
-    const videos = fs
-      .readdirSync(videosDir)
-      .filter(f => /\.(mp4|webm|ogg)$/i.test(f));
-
-    const randomVideo = videos[Math.floor(Math.random() * videos.length)];
-    const videoPath = path.join(videosDir, randomVideo);
-
-    await this.page.locator('text=Add video tutorial').click();
-    await this.page.locator('input[type="file"]').first().setInputFiles(videoPath);
-     }
-}

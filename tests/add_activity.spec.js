@@ -47,10 +47,12 @@ for (let i = 0; i < 1; i++) {
     // add photo
     const coverUpload = new ImageUpload(page);
     await coverUpload.uploadRandomImage();
-
+    await page.waitForTimeout(3000);
+    
     // add video
     const videoUpload = new VideoUpload(page);
     await videoUpload.uploadRandomVideo();
+    await page.waitForTimeout(3000);
 
     // fill youtube link
     await page
