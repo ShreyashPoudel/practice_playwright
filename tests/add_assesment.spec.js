@@ -21,9 +21,15 @@ test("Add assessment "+ (i + 1), async ({page}) => {
 
 
     await page.waitForTimeout(3000);
-    const dev_site = "https://dev.growli-slp.com/admin/assessments";
+
+    // dev site
+    // const dev_site = "https://dev.growli-slp.com/admin/assessments";
+    // await page.goto(dev_site);
+
+    // prod site
     const live_site = "https://growli-slp.com/admin/assessments";
-    await page.goto(dev_site);
+    await page.goto(live_site);
+
     await page.getByRole('link', {name: 'Create Assessment'}).click();
     await page.waitForTimeout(2000);
     
