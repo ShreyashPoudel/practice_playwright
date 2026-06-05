@@ -39,7 +39,7 @@ for (let i = 0; i < 5; i++) {
     // select category
     const category = ['Communication Play', 'Language', 'Speech', 'Swallowing', 'Voice', 'Fluency'];
     const randomCategory = getRandomItem(category);
-    await page.getByRole('button', {name: randomCategory}).first().click();
+    await page.getByRole('button', {name: randomCategory}).click();
 
    // fill article content
     const articleContent = page.locator('.rsw-ce');
