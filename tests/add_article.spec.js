@@ -37,7 +37,7 @@ for (let i = 0; i < 5; i++) {
     await page.getByRole('textbox', {name: 'Subtitle'}).fill(randomSubtitle);
 
     // select category
-    const category = ['Communication Play', 'Language', 'Speech', 'Swallowing', 'Voice', 'Fluency'];
+    const category = ['Communication', 'Language', 'Speech', 'Swallowing', 'Voice', 'Fluency', 'Other'];
     const randomCategory = getRandomItem(category);
     await page.getByRole('button', {name: randomCategory}).click();
 
