@@ -24,7 +24,7 @@ for (let i = 0; i < 10; i++) {
     await page.waitForTimeout(2000);
 
     // navigate to activities
-    await page.goto("https://growli-slp.com/admin/activities");
+    await page.goto("https://dev.growli-slp.com/admin/activities");
     await page.getByRole("button", { name: "Create Activity" }).click();
     await page
       .getByRole("textbox", { name: "Activity Title" })
@@ -49,10 +49,10 @@ for (let i = 0; i < 10; i++) {
     await coverUpload.uploadRandomImage();
     await page.waitForTimeout(3000);
     
-    // add video
-    const videoUpload = new VideoUpload(page);
-    await videoUpload.uploadRandomVideo();
-    await page.waitForTimeout(3000);
+    // // add video
+    // const videoUpload = new VideoUpload(page);
+    // await videoUpload.uploadRandomVideo();
+    // await page.waitForTimeout(3000);
 
     // fill youtube link
     await page
