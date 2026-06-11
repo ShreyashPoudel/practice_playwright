@@ -23,7 +23,7 @@ for (let i = 0; i < 20; i++) {
     await page.waitForTimeout(2000);
 
     // navigate to article creation page
-    await page.goto("https://growli-slp.com/admin/articles");
+    await page.goto("https://dev.growli-slp.com/admin/articles");
     await page.getByRole('button', {name: 'Create Article'}).click();
 
     // select language
