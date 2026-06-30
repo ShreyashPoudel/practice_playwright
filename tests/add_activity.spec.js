@@ -9,8 +9,7 @@ function getRandomItem(array) {
   return array[Math.floor(Math.random() * array.length)];
 }
 
-for (let i = 0; i < 4; i++) {await page.getByRole('button', { name: 'Select age range' }).click();
-await page.getByRole('menuitem', { name: '-12 months' }).click();
+for (let i = 0; i < 4; i++) {
   test("Add activity " + (i + 1), async ({ page }) => {
     const randomTitle = getRandomItem(activityData.activityTitles);
     const randomType = getRandomItem(activityData.activityTypes);
@@ -38,14 +37,14 @@ await page.getByRole('menuitem', { name: '-12 months' }).click();
 
     // select age range
 
-  
+//   await page.getByRole('button', { name: 'Select age range' }).click();
+// await page.getByRole('menuitem', { name: '-12 months' }).click();
     const age = ['-3 months', '-6 months', '-9 months','-12 months','-15 months','-18 months', '-2 years','-2.5 years','-3 years','-3.5 years','-4 years','-4.5 years','-5 years'];
     const randomAge = getRandomItem(age);
     await page.getByRole('button', { name: 'Select age range' }).click();
     await page.getByRole('menuitem', { name: randomAge }).click();
 
     // await page.getByRole("button", { name: "Select age range" }).click();
-    await page.getByRole('menuitem', { name: '-3 months' }).click();
     // await page.getByRole("menuitem", { name: randomAgeRange }).click();
 
     // fill description
