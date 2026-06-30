@@ -19,6 +19,6 @@ export class VideoUpload {
 
     await this.page.locator('text=Add video tutorial').click();
     await this.page.waitForSelector('input[type="file"]', { state: 'visible' });
-    await this.page.locator('input[type="file"]').first().setInputFiles(videoPath);
+    await this.page.locator('input[type="file"]').nth(1).setInputFiles(videoPath);
      }
 }
