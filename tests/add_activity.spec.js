@@ -9,7 +9,7 @@ function getRandomItem(array) {
   return array[Math.floor(Math.random() * array.length)];
 }
 
-for (let i = 0; i < 4; i++) {
+for (let i = 0; i < 5; i++) {
   test("Add activity " + (i + 1), async ({ page }) => {
     const randomTitle = getRandomItem(activityData.activityTitles);
     const randomType = getRandomItem(activityData.activityTypes);
@@ -80,26 +80,19 @@ for (let i = 0; i < 4; i++) {
 
     // Random number of steps
     const n = Math.floor(Math.random() * 6) + 1;
-    await page.getByPlaceholder("e.g., Prepare the materials");
 
     for (let i = 0; i < n; i++) {
       if (i === 0) {
-        await page.getByPlaceholder('e.g., Prepare the materials').first().fill(allSteps[i]);
-      }
-       else if (i === 1) {
-        await page.getByPlaceholder('e.g., Prepare the materials').nth(1).fill(allSteps[i]);
-          
-        // await page
-        //   .getByPlaceholder("e.g., Prepare the materials")
-        //   .fill(allSteps[i]);
+        await page.getByPlaceholder(`Step ${i + 1}`).fill(allSteps[i]);
       } else {
-        await page.getByRole("button", { name: "+ Add Another Step" }).click();
-        await page.getByPlaceholder("e.g., Prepare the materials").nth(i).waitFor();
-        await page.getByPlaceholder("e.g., Prepare the materials").nth(i).fill(allSteps[i]);
+        await page.getByRole("button", { name: "Add Another Step" }).click();
+        await page.waitForTimeout(300);
+        await page.getByPlaceholder(`Step ${i + 1}`).waitFor();
+        await page.getByPlaceholder(`Step ${i + 1}`).fill(allSteps[i]);
       }
     }
     await page.waitForTimeout(1000);
-    await page.getByRole("button", { name: "Create New Activity" }).click();
+    await page.getByRole("button", { name: "Create Activity" }).click();
     await page.waitForTimeout(2000);
   });
 }
