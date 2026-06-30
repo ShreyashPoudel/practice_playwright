@@ -17,6 +17,7 @@ export class ImageUpload {
     const imagePath = path.join(imagesDir,randomImage);
 
     await this.page.locator('text=Drop your image here or').click();
+    await this.page.waitForTimeout(500);
     await this.page.locator('input[type="file"]').setInputFiles(imagePath);
 
   }
