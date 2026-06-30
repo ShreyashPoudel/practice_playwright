@@ -12,27 +12,20 @@
     "Early Motor Ability Assessment"
   ],
 
-    "ageRanges": [
-    "0-3 months",
-    "3-6 months",
-    "6-9 months",
-    "9-12 months",
-    "12-15 months",
-    "15-18 months",
-    "18-21 months",
-    "21-24 months",
-    "2-2.3 years",
-    "2.3-2.5 years",
-    "2.5-2.8 years",
-    "2.8-3 years",
-    "3-3.3 years",
-    "3.5-3.5 years",
-    "3.5-3.8 years",
-    "3.8-4 years",
-    "4-4.3 years",
-    "4.3-4.5 years",
-    "4.5-4.8 years",
-    "4.8-5 years"
+  "ageRanges": [
+    "-3 months",
+    "-6 months",
+    "-9 months",
+    "-12 months",
+    "-15 months",
+    "-18 months",
+    "-2 years",
+    "-2.5 years",
+    "-3 years",
+    "-3.5 years",
+    "-4 years",
+    "-4.5 years",
+    "-5 years"
   ],
 
   "parentDescriptions": [

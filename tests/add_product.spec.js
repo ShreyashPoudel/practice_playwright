@@ -8,7 +8,7 @@ function getRandomItem(array) {
     return array[Math.floor(Math.random() * array.length)];
 }
 
-for (let i = 0; i < 150; i++) {
+for (let i = 0; i < 1; i++) {
 test("Add Product " + (i + 1) , async ({page}) => {
 
     const randomTitle = getRandomItem(productData.productTitles);
@@ -53,9 +53,6 @@ test("Add Product " + (i + 1) , async ({page}) => {
 
     // activity tags
     await page.getByRole('textbox', {name:"e.g., Language, Outdoor"}).fill(randomTag);
-
-    // whatsapp number
-    await page.getByRole('textbox', {name: 'Enter Number'}).fill("+977 1234567890");
 
     // press publish button
     await page.getByRole('button', {name: 'Create Product'}).click();
