@@ -18,7 +18,7 @@ export class ImageUpload {
 
     await this.page.locator('text=Drop your image here or').click();
     await this.page.waitForTimeout(500);
-    await this.page.locator('input[type="file"]').setInputFiles(imagePath);
+    await this.page.locator('input[type="file"]').first().setInputFiles(imagePath);
 
   }
 }
