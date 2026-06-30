@@ -17,8 +17,8 @@ export class ImageUpload {
     const imagePath = path.join(imagesDir, randomImage);
 
     await this.page.locator('text=Upload a cover image').click();
-    await this.page.waitForSelector('input[type="file"]', { state: 'visible' });
-    await this.page.locator('input[type="file"]').last().setInputFiles(imagePath);
+    await this.page.waitForTimeout(500);
+    await this.page.locator('input[type="file"]').setInputFiles(imagePath);
      }
 }
 
