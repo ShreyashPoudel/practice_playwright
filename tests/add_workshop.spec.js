@@ -8,7 +8,7 @@ function getRandomItem(array) {
   return array[Math.floor(Math.random() * array.length)];
 }
 
-for (let i = 0; i < 1; i++) {
+for (let i = 0; i < 3; i++) {
   test("Add workshop " + (i + 1), async ({ page }) => {
     const randomTitle = getRandomItem(workshopData.workshopTitles);
     const randomDescription = getRandomItem(workshopData.workshopDescriptions);
@@ -20,13 +20,11 @@ for (let i = 0; i < 1; i++) {
     await loginPage.login();
     await page.waitForTimeout(2000);
 
-    // navigate to activities
-    await page.goto("https://growli-slp.com/admin/activities");
+    // navigate to workshops
+    await page.getByRole('link', { name: 'Workshops' }).click();
 
-    // click View Workshop
-    await page.getByRole("button", { name: "View Workshop" }).click();
-
-    await page.getByRole("button", { name: "Create New Workshop" }).click();
+    // click on create workshop
+    await page.getByRole('button', { name: 'Create New Workshop' }).click();
 
     // workshop title
     await page.getByRole("textbox", { name: "Workshop Title" }).fill(randomTitle);
@@ -39,13 +37,13 @@ for (let i = 0; i < 1; i++) {
     await coverUpload.uploadRandomImage();
 
     // fill youtube link
-    await page.locator("//input[@placeholder='https://youtube.com/watch?v=...']").fill(randomYoutubeLink);
+    // await page.locator("//input[@placeholder='https://youtube.com/watch?v=...']").fill(randomYoutubeLink);
 
     // workshop access type
     await page.getByRole("button", { name: randomAccessType }).click();
 
     await page.waitForTimeout(1000);
-    await page.getByRole("button", { name: "Create New Workshop" }).click();
+    await page.getByRole("button", { name: "Create Workshop" }).click();
     await page.waitForTimeout(2000);
   });
 }
