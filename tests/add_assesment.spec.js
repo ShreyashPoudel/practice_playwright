@@ -13,7 +13,7 @@ test("Add assessment "+ (i + 1), async ({page}) => {
     const randomTitle = getRandomItem(assessmentData.assessmentTitles);
     const randomAgeRange = getRandomItem(assessmentData.ageRanges);
     const randomDescription = getRandomItem(assessmentData.parentDescriptions);
-    const randomCategory = getRandomItem(assessmentData.categories);
+    // const randomCategory = getRandomItem(assessmentData.categories);
     
     // login 
     const loginPage = new LoginPage(page);
@@ -41,9 +41,13 @@ test("Add assessment "+ (i + 1), async ({page}) => {
 
     // add description
     await page.getByRole('textbox', {name: 'Description for Parents'}).fill(randomDescription);
-    
+
     // add category
     // await page.getByRole('button').filter({ hasText: 'Select category' }).click();
+    
+    const categories = ["Communication", "Fluency","Language","Speech","Swallowing", "Voice"];
+    const randomCategory = getRandomItem(categories);
+
     await page.getByRole('button', {name: 'Select category'}).click();
     await page.waitForTimeout(1000);
     await page.getByRole('menuitem', { name: randomCategory }).click();
@@ -52,7 +56,7 @@ test("Add assessment "+ (i + 1), async ({page}) => {
     const questions = [...assessmentData.questions];
     questions.sort(() => Math.random() - 0.5);
     const n = Math.floor(Math.random() * 8) + 1; // Random number of questions between 1 and 8
-    const questionBoxes = page.getByRole('textbox', {name: 'Enter translated question'});
+    const questionBoxes = page.getByRole('textbox', {name: 'Enter translated question'});``
     for (let i = 0; i < n; i++) {
     await questionBoxes.nth(i).fill(questions[i]);
 
